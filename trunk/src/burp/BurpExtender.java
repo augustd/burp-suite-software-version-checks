@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Burp Extender intended to find instances of Applications revealing software version numbers 
+ * Burp Extender to find instances of applications revealing software version numbers 
  * 
  * Some examples: 
  * <li>Apache Tomcat/6.0.24 - Error report
@@ -20,7 +20,7 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
     private IBurpExtenderCallbacks callbacks;
     private IExtensionHelpers helpers;
     
-    // test / grep strings
+    //regex for server identifiers
     private static final Pattern ASP_NET = Pattern.compile("ASP.NET Version:([0-9\\.]+)");
     private static final Pattern APACHE = Pattern.compile("Apache/([0-9\\.]+( \\([ a-zA-Z]+\\)){0,1})");
     private static final Pattern APACHE_COYOTE = Pattern.compile("Apache-Coyote/([0-9\\.]+)");
@@ -42,7 +42,11 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
     private static final Pattern PERL = Pattern.compile("Perl/v([0-9\\.]+)");
     private static final Pattern PHP = Pattern.compile("PHP/([0-9\\.]+)");
     private static final Pattern SERVLET = Pattern.compile("Servlet ([0-9\\.]+)");
+    
+    //regex for headers
     private static final Pattern X_ASP_NET = Pattern.compile("X-AspNet-Version: ([0-9\\.]+)");
+    private static final Pattern X_ASP_NET_MVC = Pattern.compile("X-AspNetMvc-Version: ([0-9\\.]+)");
+    private static final Pattern X_OWA = Pattern.compile("X-OWA-Version: ([0-9\\.]+)");
         
     private static final List<MatchRule> rules = new ArrayList<MatchRule>();
     static {
@@ -68,8 +72,8 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 	rules.add(new MatchRule(PHP, 1, "PHP"));    
 	rules.add(new MatchRule(SERVLET, 1, "Generic Java Servlet engine (possibly JBoss)"));    
 	rules.add(new MatchRule(X_ASP_NET, 1, "ASP.Net"));
-	
-	
+	rules.add(new MatchRule(X_ASP_NET_MVC, 1, "ASP.Net MVC Framework"));
+	rules.add(new MatchRule(X_OWA, 1, "Outlook Web Access"));
     }
     
     
