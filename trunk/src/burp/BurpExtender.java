@@ -1,5 +1,7 @@
 package burp;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,6 +14,8 @@ import java.util.regex.Pattern;
  * 
  * Some examples: 
  * <li>Apache Tomcat/6.0.24 - Error report
+ * <li>Server: Apache/2.2.4 (Unix) mod_perl/2.0.3 Perl/v5.8.8
+ * <li>X-AspNet-Version: 4.0.30319
  * 
  * @author August Detlefsen <augustd at codemagi dot com>
  */
@@ -19,6 +23,7 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 
     private IBurpExtenderCallbacks callbacks;
     private IExtensionHelpers helpers;
+    private OutputStream output;
     
     //regex for server identifiers
     private static final Pattern ASP_NET = Pattern.compile("ASP.NET Version:([0-9\\.]+)");
@@ -94,7 +99,10 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 	// register ourselves as a custom scanner check
 	callbacks.registerScannerCheck(this);
 	
-	System.out.println("Loaded Software Version Checks");
+	//get the output stream for info messages
+	output = callbacks.getStdout();
+	
+	println("Loaded Software Version Checks");
     }
 
     /**
@@ -107,7 +115,7 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 
 	//get the URL of the requst
 	URL url = helpers.analyzeRequest(baseRequestResponse).getUrl();
-	System.out.println("Scanning for software version numbers: " + url.toString());
+	println("Scanning for software version numbers: " + url.toString());
 	
 	//get the body of the response
 	byte[] responseBytes = baseRequestResponse.getResponse();
@@ -117,7 +125,7 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 	for (MatchRule rule : rules) {
 	    Matcher matcher = rule.getPattern().matcher(response);
 	    while (matcher.find()) {
-		System.out.println("FOUND " + rule.getType() + "!");
+		println("FOUND " + rule.getType() + "!");
 		
 		//get the actual match 
 		String group;
@@ -127,7 +135,7 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 		    group = matcher.group();
 		}
 
-		System.out.println("start: " + matcher.start() + " end: " + matcher.end() + " group: " + group);
+		println("start: " + matcher.start() + " end: " + matcher.end() + " group: " + group);
 
 		matches.add(new ScannerMatch(matcher.start(), matcher.end(), group, rule.getType()));
 	    }
@@ -143,8 +151,8 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 	    
 	    List<int[]> startStop = new ArrayList<int[]>(1);
 	    for (ScannerMatch match : matches) {
-		System.out.println("Processing match: " + match);
-		System.out.println("    start: " + match.getStart() + " end: " + match.getEnd() + " match: " + match.getMatch() + " match: " + match.getMatch());
+		println("Processing match: " + match);
+		println("    start: " + match.getStart() + " end: " + match.getEnd() + " match: " + match.getMatch() + " match: " + match.getMatch());
 
 		//add a marker for code highlighting
 		startStop.add(new int[]{match.getStart(), match.getEnd()});
@@ -156,9 +164,7 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 
 	    }
 
-	    System.out.println("    Description: " + description.toString());
-
-	    System.out.println("    Confidence: Firm");
+	    println("    Description: " + description.toString());
 
 	    issues.add(new CustomScanIssue(
 			baseRequestResponse.getHttpService(),
@@ -169,7 +175,7 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 			"Low",
 			"Firm"));
 
-	    System.out.println("issues: " + issues.size());
+	    println("issues: " + issues.size());
 
 	    return issues;
 	    
@@ -196,11 +202,21 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 	// if both issues have the same name, only report the existing issue
 	// otherwise report both issues
 	if (existingIssue.getIssueDetail().equals(newIssue.getIssueDetail())) {
-	    System.out.println("DUPLICATE ISSUE! Consolidating...");
+	    println("DUPLICATE ISSUE! Consolidating...");
 	    return -1;
 	} else {
 	    return 0;
 	}
+    }
+    
+    private void println(String toPrint) {
+	try {
+	    output.write(toPrint.getBytes());
+	    output.write("\n".getBytes());
+	    output.flush();
+	} catch (IOException ioe) {
+	    ioe.printStackTrace();
+	} 
     }
 }
 
