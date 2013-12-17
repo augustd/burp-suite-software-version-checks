@@ -226,7 +226,7 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 			"Software Version Numbers Revealed",
 			description.toString(),
 			severity,
-			"Firm"));
+			"Certain"));
 
 	    println("issues: " + issues.size());
 
