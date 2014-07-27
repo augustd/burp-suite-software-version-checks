@@ -39,6 +39,7 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
     private static final Pattern APACHE_TOMCAT = Pattern.compile("Apache Tomcat/([0-9\\.]+)");
     private static final Pattern BOA = Pattern.compile("BOA/([0-9\\.]+)");
     private static final Pattern DOT_NET_FRAMEWORK = Pattern.compile("Microsoft \\.NET Framework Version:([0-9\\.]+)");
+    private static final Pattern DOT_NET_FRAMEWORK_SDK = Pattern.compile("Microsoft \\.NET Framework ([0-9\\.]+)");
     private static final Pattern IHS = Pattern.compile("IBM_HTTP_Server/([0-9\\.]+)");
     private static final Pattern IBM_NWEB = Pattern.compile("nweb/([0-9\\.]+)");
     private static final Pattern IWEB = Pattern.compile("IWeb/([0-9\\.]+)");
@@ -89,6 +90,7 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 	rules.add(new MatchRule(APACHE_TOMCAT, 1, "Apache Tomcat"));
 	rules.add(new MatchRule(BOA, 1, "BOA Web Server"));
 	rules.add(new MatchRule(DOT_NET_FRAMEWORK, 1, "Microsoft .Net Framework"));
+	rules.add(new MatchRule(DOT_NET_FRAMEWORK_SDK, 1, "Microsoft .Net Framework"));
 	rules.add(new MatchRule(IHS, 1, "IBM HTTP Server"));
         rules.add(new MatchRule(IBM_NWEB, 1, "IBM-NWeb"));
         rules.add(new MatchRule(IWEB, 1, "360vision CCTV Web Server"));
