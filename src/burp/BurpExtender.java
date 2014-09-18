@@ -73,6 +73,7 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
     private static final Pattern PHUSION = Pattern.compile("Phusion Passenger ([0-9\\.]+)");
     private static final Pattern PHP = Pattern.compile("PHP/([0-9\\.]+)");
     private static final Pattern SERVLET = Pattern.compile("Servlet ([0-9\\.]+)");
+    private static final Pattern TORNADO = Pattern.compile("TornadoServer/([0-9\\.]+)");
     private static final Pattern WAS = Pattern.compile("WebSphere Application Server/([0-9\\.]+)");    
     
     //regex for headers
@@ -124,6 +125,7 @@ public class BurpExtender implements IBurpExtender, IScannerCheck {
 	rules.add(new MatchRule(PHP, 1, "PHP"));    
         rules.add(new MatchRule(PHUSION, 1, "Phusion Passenger"));
 	rules.add(new MatchRule(SERVLET, 1, "Generic Java Servlet engine (possibly JBoss)"));    
+	rules.add(new MatchRule(TORNADO, 1, "Tornado Server"));
         rules.add(new MatchRule(WAS, 1, "IBM WebSphere Application Server"));
 	rules.add(new MatchRule(X_ASP_NET, 1, "ASP.Net"));
 	rules.add(new MatchRule(X_ASP_NET_MVC, 1, "ASP.Net MVC Framework"));
