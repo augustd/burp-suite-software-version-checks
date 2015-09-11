@@ -75,7 +75,7 @@
     <target name="-post-jar">
 	<jar jarfile="dist/SoftwareVersionChecks-combined.jar">
 	    <zipfileset src="${dist.jar}" />
-	    <!--<zipfileset src="lib/commons-collections-3.2.1.jar" excludes="META-INF/*" />-->
+	    <zipgroupfileset dir="dist/lib" includes="*.jar" excludes="META-INF/*"/>
 	</jar>
     </target>
 
