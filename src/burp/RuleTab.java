@@ -6,10 +6,12 @@ import com.codemagi.burp.ScanIssueConfidence;
 import com.codemagi.burp.ScanIssueSeverity;
 import java.awt.Component;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.net.URL;
 import java.util.regex.Pattern;
 import javax.swing.DefaultCellEditor;
 import javax.swing.table.DefaultTableModel;
@@ -60,19 +62,21 @@ public class RuleTab extends javax.swing.JPanel implements ITab {
 
 	restoreSavedSettings();
 
-	loadMatchRules();
+	//load match rules from GitHub
+	loadMatchRules("https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/burp/match-rules.tab"); ///getClass().getResourceAsStream("match-rules.tab"));
     }
 
     /**
      * Load match rules from a file
      */
-    private void loadMatchRules() {
+    private void loadMatchRules(String url) {
 	//load match rules from file
 	try {
+	    
 	    DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
 
-	    //ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-	    InputStream is = getClass().getResourceAsStream("match-rules.tab");
+	    //read match rules from the stream
+	    InputStream is = new URL(url).openStream();
 	    BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 	    
 	    String str;
@@ -85,11 +89,6 @@ public class RuleTab extends javax.swing.JPanel implements ITab {
 		String[] values = str.split("\\t");
 		model.addRow(values);
 
-		mCallbacks.printOutput("Printing file content:");
-		mCallbacks.printOutput("regex: " + values[0]);
-		mCallbacks.printOutput("group: " + values[1]);
-		mCallbacks.printOutput("type: " + values[2]);
-		
 		Pattern pattern = Pattern.compile(values[0]);
 		
 		((BurpExtender)scan).addDynamicMatchRule(new MatchRule(
@@ -101,7 +100,10 @@ public class RuleTab extends javax.swing.JPanel implements ITab {
 		);
 	    }
 
-	} catch (Exception e) {
+	} catch (IOException e) {
+	    OutputStream error = mCallbacks.getStderr();
+	    e.printStackTrace(new PrintStream(error));
+	} catch (NumberFormatException e) {
 	    OutputStream error = mCallbacks.getStderr();
 	    e.printStackTrace(new PrintStream(error));
 	}
@@ -366,7 +368,7 @@ public class RuleTab extends javax.swing.JPanel implements ITab {
 
         jLabel6.setText("Load match rules from URL: ");
 
-        jTextField2.setText("jTextField2");
+        jTextField2.setText("https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/burp/match-rules.tab");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -467,10 +469,10 @@ public class RuleTab extends javax.swing.JPanel implements ITab {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 	//read value from text field
+	String url = jTextField2.getText();
 	
 	//issue request to URL
-	
-	//parse text file 
+	loadMatchRules(url);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
