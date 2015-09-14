@@ -1,5 +1,6 @@
 package burp;
 
+import com.codemagi.burp.BurpSuiteTab;
 import com.codemagi.burp.PassiveScan;
 import com.codemagi.burp.MatchRule;
 import com.codemagi.burp.ScanIssue;
@@ -8,6 +9,8 @@ import com.codemagi.burp.ScanIssueSeverity;
 import com.codemagi.burp.ScannerMatch;
 import java.util.List;
 import java.util.regex.Pattern;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  * Burp Extender to find instances of applications revealing software version numbers 
@@ -22,15 +25,15 @@ import java.util.regex.Pattern;
  */
 public class BurpExtender extends PassiveScan {
 
+    protected ITab mTab;
+    
     @Override
-    protected void initialize() {
-	//call the superclass initializer
-	super.initialize();
-	
+    protected void initPassiveScan() {
 	//set the extension Name
 	extensionName = "Software Version Checks";
 	
 	//create match rules
+	/*
 	addMatchRule(new MatchRule(Alterian_CME, 1, "Alterian-CME", ScanIssueSeverity.LOW));
         addMatchRule(new MatchRule(ARR, 1, "IIS Application Request Routing", ScanIssueSeverity.LOW));
         addMatchRule(new MatchRule(ASP_NET, 1, "ASP.Net", ScanIssueSeverity.LOW));
@@ -78,8 +81,17 @@ public class BurpExtender extends PassiveScan {
 	addMatchRule(new MatchRule(X_ASP_NET, 1, "ASP.Net", ScanIssueSeverity.LOW));
 	addMatchRule(new MatchRule(X_ASP_NET_MVC, 1, "ASP.Net MVC Framework", ScanIssueSeverity.LOW));
 	addMatchRule(new MatchRule(X_OWA, 1, "Outlook Web Access", ScanIssueSeverity.LOW));
-    }
+	*/
+			
+	mTab = new RuleTab(this, extensionName, callbacks);
+	callbacks.addSuiteTab(mTab);
 
+    }
+    
+    protected void addDynamicMatchRule(MatchRule newRule) {
+	super.addMatchRule(newRule);
+    }
+	    
     protected String getIssueName() {
 	return "Software Version Numbers Revealed";
     }
