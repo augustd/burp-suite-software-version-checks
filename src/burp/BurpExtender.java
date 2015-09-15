@@ -1,6 +1,5 @@
 package burp;
 
-import com.codemagi.burp.BurpSuiteTab;
 import com.codemagi.burp.PassiveScan;
 import com.codemagi.burp.MatchRule;
 import com.codemagi.burp.ScanIssue;
@@ -9,8 +8,6 @@ import com.codemagi.burp.ScanIssueSeverity;
 import com.codemagi.burp.ScannerMatch;
 import java.util.List;
 import java.util.regex.Pattern;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 /**
  * Burp Extender to find instances of applications revealing software version numbers 
