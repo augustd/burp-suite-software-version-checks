@@ -21,7 +21,7 @@ jQuery hashchange event - v([0-9\\.]+)	1	jQuery hashchange event	Information	Cer
 jQuery Tiny Pub/Sub - v([0-9\\.]+)	1	jQuery Tiny Pub/Sub	Information	Certain
 jquery[/-]([0-9\\.]+)	1	jQuery	Information	Certain
 jQuery v([0-9\\.]+)	1	jQuery	Information	Certain
-Liferay Portal Enterprise Edition ([0-9\\.]+) 1 Liferay Portal  Low Certain
+Liferay Portal Enterprise Edition ([0-9\\.]+)	1   Liferay Portal  Low	Certain
 lighttpd/([0-9\\.]+)	1	lighttpd	Low	Certain
 LiteSpeed/([0-9\\.]+)	1	OpenCms	Low	Certain  
 JSF/([0-9\\.]+)	1	Java Server Faces	Low	Certain
