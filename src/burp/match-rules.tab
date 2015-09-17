@@ -11,6 +11,7 @@ IBM_HTTP_Server/([0-9\\.]+)	1	IBM HTTP Server	Low	Certain
 nweb/([0-9\\.]+)	1	IBM-NWeb	Low	Certain
 IWeb/([0-9\\.]+)	1	360vision CCTV Web Server	Low	Certain
 JBoss-([0-9\\.]+(GA)?)	1	JBoss	Low	Certain
+JBoss_([0-9_]+)	1   JBoss   Low	Certain
 JBPAPP_([0-9_]+(GA)?)	1	JBoss	Low	Certain
 Tomcat-([0-9\\.]+)	1	JBoss (Tomcat)	Low	Certain
 JBossWeb/([0-9\\.]+(GA)?)	1	JBoss Webserver	Low	Certain
@@ -21,7 +22,7 @@ jQuery hashchange event - v([0-9\\.]+)	1	jQuery hashchange event	Information	Cer
 jQuery Tiny Pub/Sub - v([0-9\\.]+)	1	jQuery Tiny Pub/Sub	Information	Certain
 jquery[/-]([0-9\\.]+)	1	jQuery	Information	Certain
 jQuery v([0-9\\.]+)	1	jQuery	Information	Certain
-Liferay Portal Enterprise Edition ([0-9\\.]+)	1   Liferay Portal  Low	Certain
+Liferay Portal Enterprise Edition ([0-9\\.]+)	1	Liferay Portal	Low	Certain
 lighttpd/([0-9\\.]+)	1	lighttpd	Low	Certain
 LiteSpeed/([0-9\\.]+)	1	OpenCms	Low	Certain  
 JSF/([0-9\\.]+)	1	Java Server Faces	Low	Certain
