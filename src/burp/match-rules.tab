@@ -11,7 +11,7 @@ IBM_HTTP_Server/([0-9\\.]+)	1	IBM HTTP Server	Low	Certain
 nweb/([0-9\\.]+)	1	IBM-NWeb	Low	Certain
 IWeb/([0-9\\.]+)	1	360vision CCTV Web Server	Low	Certain
 JBoss-([0-9\\.]+(GA)?)	1	JBoss	Low	Certain
-JBoss_([0-9_]+)	1   JBoss   Low	Certain
+JBoss_([0-9_]+)	1	JBoss	Low	Certain
 JBPAPP_([0-9_]+(GA)?)	1	JBoss	Low	Certain
 Tomcat-([0-9\\.]+)	1	JBoss (Tomcat)	Low	Certain
 JBossWeb/([0-9\\.]+(GA)?)	1	JBoss Webserver	Low	Certain
