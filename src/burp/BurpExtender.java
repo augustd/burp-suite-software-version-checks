@@ -6,10 +6,8 @@ import com.codemagi.burp.ScanIssue;
 import com.codemagi.burp.ScanIssueConfidence;
 import com.codemagi.burp.ScanIssueSeverity;
 import com.codemagi.burp.ScannerMatch;
-import com.monikamorrow.burp.BurpSuiteTab;
 import java.util.List;
 import java.util.regex.Pattern;
-import javax.swing.JPanel;
 
 /**
  * Burp Extender to find instances of applications revealing software version numbers 
@@ -24,8 +22,7 @@ import javax.swing.JPanel;
  */
 public class BurpExtender extends PassiveScan {
 
-    protected JPanel mPanel;
-    protected BurpSuiteTab mTab;
+    protected ITab mTab;
     
     @Override
     protected void initPassiveScan() {
@@ -83,18 +80,10 @@ public class BurpExtender extends PassiveScan {
 	addMatchRule(new MatchRule(X_OWA, 1, "Outlook Web Access", ScanIssueSeverity.LOW));
 	*/
 			
-	mPanel = new RuleTab(this, extensionName, callbacks);
-        mTab = new BurpSuiteTab(mPanel, extensionName, callbacks);
-        callbacks.customizeUiComponent(mTab);
-        callbacks.addSuiteTab(mTab);
+	mTab = new RuleTab(this, extensionName, callbacks);
+	callbacks.addSuiteTab(mTab);
 
     }
-    
-//    ::TODO:: Add so that settings can save on exit
-//    @Override
-//    public void extensionUnloaded() {
-//        mTab.saveSettings();
-//    }
     
     protected void addDynamicMatchRule(MatchRule newRule) {
 	super.addMatchRule(newRule);
