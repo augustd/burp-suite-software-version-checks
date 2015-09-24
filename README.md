@@ -7,3 +7,5 @@ This is a Burp Suite 1.5+ extension to help find instances of applications revea
 Often the server version is revealed only on error responses, which may not be visible during the normal course of testing. This extension is designed to passively detect version numbers, even during scanning, spidering, etc.
 
 To build this project you will also need the [Burp Suite Utils](https://github.com/augustd/burp-suite-utils) package. 
+
+View our [AppSec USA 2015 presentaton about this project](http://www.slideshare.net/AugustDetlefsen/appsec-usa-2015-customizing-burp-suite) on SlideShare.
