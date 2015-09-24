@@ -33,13 +33,9 @@ public class BurpExtender extends PassiveScan {
 	extensionName = "Software Version Checks";
 	
 	rulesTable = new RuleTableComponent(this, callbacks);
-        callbacks.customizeUiComponent(rulesTable);
         
         mTab = new BurpSuiteTab(extensionName, callbacks);
         mTab.addComponent(rulesTable);
-        
-        callbacks.customizeUiComponent(mTab);
-        callbacks.addSuiteTab(mTab);
     }
     
 //    ::TODO:: Add so that settings can save on exit
