@@ -34,14 +34,17 @@ OpenCms/([0-9\\.]+)	1	OpenCms	Low	Certain
 mod_ssl/([0-9\\.]+)	1	mod_ssl	Low	Certain    
 mod_perl/([0-9\\.]+)	1	mod_perl	Low	Certain    
 Omniture DC/([0-9\\.]+)	1	Omniture DC (Adobe)	Low	Certain
-OpenSSL/([0-9\\.]+)	1	OpenSSL	Low	Certain    
+OpenSSL/([0-9\\.]+)	1	OpenSSL	Low	Certain
+Oracle-iPlanet-Web-Server/([0-9\\.]+.*)	1	Oracle iPlanet	Low	Certain
 Sun-Java-System-Web-Server/([0-9\\.]+.*)	1	Oracle iPlanet	Low	Certain
 Oracle-Application-Server-([0-9\\.]+.*)	1	Oracle-Application-Server	Low	Certain
+Oracle OpenSSO ([0-9\\.]+.*)	1	Oracle OpenSSO	Low	Certain
 Orion/([0-9\\.]+)	1	Orion	Low	Certain    
 Perl/v([0-9\\.]+)	1	Perl	Low	Certain    
 PHP/([0-9\\.]+)	1	PHP	Low	Certain    
 Phusion Passenger ([0-9\\.]+)	1	Phusion Passenger	Low	Certain
-Servlet ([0-9\\.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
+Servlet[ /]([0-9\\.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
+JSP/([0-9\\.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
 TornadoServer/([0-9\\.]+)	1	Tornado Server	Low	Certain
 WebSphere Application Server/([0-9\\.]+)	1	IBM WebSphere Application Server	Low	Certain
 X-AspNet-Version: ([0-9\\.]+)	1	ASP.Net	Low	Certain
