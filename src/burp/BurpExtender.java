@@ -44,10 +44,6 @@ public class BurpExtender extends PassiveScan {
 //        mTab.saveSettings();
 //    }
     
-    protected void addDynamicMatchRule(MatchRule newRule) {
-	super.addMatchRule(newRule);
-    }
-	    
     protected String getIssueName() {
 	return "Software Version Numbers Revealed";
     }
@@ -85,20 +81,35 @@ public class BurpExtender extends PassiveScan {
     }
 
     protected ScanIssueConfidence getIssueConfidence(List<com.codemagi.burp.ScannerMatch> matches) {
-	return ScanIssueConfidence.CERTAIN;
+	ScanIssueConfidence output = ScanIssueConfidence.TENTATIVE;
+	for (ScannerMatch match : matches) {
+	    //if the severity value of the match is higher, then update the stdout value
+	    ScanIssueConfidence matchConfidence = match.getConfidence();
+	    callbacks.printOutput("Confidence: " + matchConfidence);
+	    if (matchConfidence != null && 
+		output.getValue() < matchConfidence.getValue()) {
+		
+		output = matchConfidence;
+	    }
+	    callbacks.printOutput("Output: " + output);
+	}
+	return output;
     }
     
     @Override
     protected IScanIssue getScanIssue(IHttpRequestResponse baseRequestResponse, List<ScannerMatch> matches, List<int[]> startStop) {
-	return new ScanIssue(
+	ScanIssueSeverity overallSeverity = getIssueSeverity(matches);
+        ScanIssueConfidence overallConfidence = getIssueConfidence(matches);
+        
+        return new ScanIssue(
 		baseRequestResponse, 
 		helpers,
 		callbacks, 
 		startStop, 
 		getIssueName(), 
 		getIssueDetail(matches), 
-		ScanIssueSeverity.MEDIUM.getName(), 
-		ScanIssueConfidence.FIRM.getName());
+		overallSeverity.getName(), 
+		overallConfidence.getName());
     }
 
 }
