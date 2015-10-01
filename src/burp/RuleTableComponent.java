@@ -13,6 +13,8 @@ import java.io.PrintStream;
 import java.net.URL;
 import java.util.regex.Pattern;
 import javax.swing.DefaultCellEditor;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -34,10 +36,49 @@ public class RuleTableComponent extends javax.swing.JPanel{
 
 	initComponents();
 
-	mCallbacks.customizeUiComponent(jTable2);
+	mCallbacks.customizeUiComponent(rules);
 
 	//load match rules from GitHub
-	loadMatchRules("https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/burp/match-rules.tab"); ///getClass().getResourceAsStream("match-rules.tab"));
+	loadMatchRules("https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/burp/match-rules.tab"); 
+        
+        //add a listener for changes to the table model
+        DefaultTableModel model = (DefaultTableModel)rules.getModel();
+        model.addTableModelListener(new TableModelListener() {
+            public void tableChanged(TableModelEvent e) {
+                if (TableModelEvent.UPDATE == e.getType()) {
+                    mCallbacks.printOutput(e.toString());
+                    int row = e.getFirstRow();
+                    int column = e.getColumn();
+                    mCallbacks.printOutput("row: " + row + " column: " + column + " value: " + model.getValueAt(row, column));
+                    MatchRule rule = scan.getMatchRule(row);
+                    mCallbacks.printOutput("rule 1: " + rule); 
+                    if (rule == null) {
+                        rule = new MatchRule(Pattern.compile("."), 0, "");
+                        scan.addMatchRule(rule);
+                    }
+                    mCallbacks.printOutput("rule 2: " + rule); 
+                    
+                    switch (column) { 
+                        case 0: 
+                            mCallbacks.printOutput("new pattern: " + (String)model.getValueAt(row, column));
+                            rule.setPattern(Pattern.compile((String)model.getValueAt(row, column)));
+                            break;
+                        case 1:
+                            rule.setMatchGroup((Integer)model.getValueAt(row, column));
+                            break;
+                       case 2:
+                            rule.setType((String)model.getValueAt(row, column));
+                            break;
+                        case 3:
+                            rule.setSeverity(ScanIssueSeverity.fromName((String)model.getValueAt(row, column)));
+                            break;
+                        case 4:
+                            rule.setConfidence(ScanIssueConfidence.fromName((String)model.getValueAt(row, column)));
+                            break;
+                    }
+                }
+            }
+        });
     }
 
     /**
@@ -47,7 +88,7 @@ public class RuleTableComponent extends javax.swing.JPanel{
 	//load match rules from file
 	try {
 	    
-	    DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+	    DefaultTableModel model = (DefaultTableModel)rules.getModel();
 
 	    //read match rules from the stream
 	    InputStream is = new URL(url).openStream();
@@ -64,13 +105,13 @@ public class RuleTableComponent extends javax.swing.JPanel{
 		model.addRow(values);
 
 		Pattern pattern = Pattern.compile(values[0]);
-		
-		((BurpExtender)scan).addDynamicMatchRule(new MatchRule(
+                
+		scan.addMatchRule(new MatchRule(
 			pattern, 
 			new Integer(values[1]), 
 			values[2], 
-			ScanIssueSeverity.fromName(values[4]),
-			ScanIssueConfidence.fromName(values[3]))
+			ScanIssueSeverity.fromName(values[3]),
+			ScanIssueConfidence.fromName(values[4]))
 		);
 	    }
 
@@ -91,13 +132,16 @@ public class RuleTableComponent extends javax.swing.JPanel{
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        rules = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        loadBtn = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        addBtn = new javax.swing.JButton();
+        removeBtn = new javax.swing.JButton();
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        rules.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -113,18 +157,18 @@ public class RuleTableComponent extends javax.swing.JPanel{
                 return types [columnIndex];
             }
         });
-        TableColumn severityColumn = jTable2.getColumnModel().getColumn(3);
+        TableColumn severityColumn = rules.getColumnModel().getColumn(3);
         severityColumn.setCellEditor(new DefaultCellEditor(ScanIssueSeverity.getComboBox()));
 
-        TableColumn confidenceColumn = jTable2.getColumnModel().getColumn(4);
+        TableColumn confidenceColumn = rules.getColumnModel().getColumn(4);
         confidenceColumn.setCellEditor(new DefaultCellEditor(ScanIssueConfidence.getComboBox()));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(rules);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(229, 137, 0));
         jLabel2.setText("Match Rules");
 
-        jLabel6.setText("Load match rules from URL: ");
+        jLabel6.setText("Match rules use regular epressions to flag software version numbers in server responses");
 
         jTextField2.setText("https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/burp/match-rules.tab");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -133,10 +177,26 @@ public class RuleTableComponent extends javax.swing.JPanel{
             }
         });
 
-        jButton1.setText("LOAD");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loadBtn.setText("Load");
+        loadBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loadBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Load rules from URL: ");
+
+        addBtn.setText("Add");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+
+        removeBtn.setText("Remove");
+        removeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeBtnActionPerformed(evt);
             }
         });
 
@@ -153,10 +213,16 @@ public class RuleTableComponent extends javax.swing.JPanel{
                             .addComponent(jLabel2)
                             .addComponent(jLabel6)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))
-                        .addGap(0, 163, Short.MAX_VALUE)))
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(loadBtn))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(addBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(removeBtn)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -169,32 +235,54 @@ public class RuleTableComponent extends javax.swing.JPanel{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jLabel7)
+                    .addComponent(loadBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 47, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addBtn)
+                    .addComponent(removeBtn))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBtnActionPerformed
 	//read value from text field
 	String url = jTextField2.getText();
 	
 	//issue request to URL
 	loadMatchRules(url);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_loadBtnActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
 	// TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        DefaultTableModel model = (DefaultTableModel)rules.getModel();
+        model.addRow(new Object[]{"", 1, "", "Low", "Certain"});
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
+        DefaultTableModel model = (DefaultTableModel)rules.getModel();
+        int[] rows = rules.getSelectedRows();
+        for (int i = 0; i < rows.length; i++) {
+            model.removeRow(rows[i] - i);
+            scan.removeMatchRule(rows[i] - i);
+        }
+    }//GEN-LAST:event_removeBtnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton addBtn;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton loadBtn;
+    private javax.swing.JButton removeBtn;
+    private javax.swing.JTable rules;
     // End of variables declaration//GEN-END:variables
 
 }
