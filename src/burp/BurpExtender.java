@@ -69,13 +69,11 @@ public class BurpExtender extends PassiveScan {
 	for (ScannerMatch match : matches) {
 	    //if the severity value of the match is higher, then update the stdout value
 	    ScanIssueSeverity matchSeverity = match.getSeverity();
-	    callbacks.printOutput("Severity: " + matchSeverity);
 	    if (matchSeverity != null && 
 		output.getValue() < matchSeverity.getValue()) {
 		
 		output = matchSeverity;
 	    }
-	    callbacks.printOutput("Output: " + output);
 	}
 	return output;
     }
@@ -85,13 +83,11 @@ public class BurpExtender extends PassiveScan {
 	for (ScannerMatch match : matches) {
 	    //if the severity value of the match is higher, then update the stdout value
 	    ScanIssueConfidence matchConfidence = match.getConfidence();
-	    callbacks.printOutput("Confidence: " + matchConfidence);
 	    if (matchConfidence != null && 
 		output.getValue() < matchConfidence.getValue()) {
 		
 		output = matchConfidence;
 	    }
-	    callbacks.printOutput("Output: " + output);
 	}
 	return output;
     }
