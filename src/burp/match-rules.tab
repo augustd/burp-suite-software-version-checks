@@ -28,6 +28,7 @@ LiteSpeed/([0-9\\.]+)	1	OpenCms	Low	Certain
 JSF/([0-9\\.]+)	1	Java Server Faces	Low	Certain
 Microsoft-HTTPAPI/([0-9\\.]+)	1	Microsoft HTTPAPI	Low	Certain
 Microsoft-IIS/([0-9\\.]+)	1	Microsoft IIS	Low	Certain
+MicrosoftSharePointTeamServices: ([0-9\\.]+)	1	Microsoft SharePoint	Low	Certain
 mod_jk/([0-9\\.]+)	1	mod_jk	Low	Certain    
 nginx/([0-9\\.]+)	1	nginx	Low	Certain    
 OpenCms/([0-9\\.]+)	1	OpenCms	Low	Certain
