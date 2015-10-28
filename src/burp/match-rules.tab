@@ -1,3 +1,4 @@
+accounting.js v([0-9\\.]+)	1	accounting.js	Low	Certain
 Alterian-CME/([0-9\\.]+)	1	Alterian-CME	Low	Certain
 ARR/([0-9\\.]+)	1	IIS Application Request Routing	Low	Certain
 ASP.NET Version:([0-9\\.]+)	1	ASP.Net	Low	Certain
@@ -24,30 +25,32 @@ jquery[/-]([0-9\\.]+)	1	jQuery	Information	Certain
 jQuery v([0-9\\.]+)	1	jQuery	Information	Certain
 Liferay Portal Enterprise Edition ([0-9\\.]+)	1	Liferay Portal	Low	Certain
 lighttpd/([0-9\\.]+)	1	lighttpd	Low	Certain
-LiteSpeed/([0-9\\.]+)	1	OpenCms	Low	Certain  
+LiteSpeed/([0-9\\.]+)	1	OpenCms	Low	Certain
+Lo-Dash ([0-9\\.]+)	1	Lo-Dash	Low	Certain
 JSF/([0-9\\.]+)	1	Java Server Faces	Low	Certain
 Microsoft-HTTPAPI/([0-9\\.]+)	1	Microsoft HTTPAPI	Low	Certain
 Microsoft-IIS/([0-9\\.]+)	1	Microsoft IIS	Low	Certain
 MicrosoftSharePointTeamServices: ([0-9\\.]+)	1	Microsoft SharePoint	Low	Certain
-mod_jk/([0-9\\.]+)	1	mod_jk	Low	Certain    
-nginx/([0-9\\.]+)	1	nginx	Low	Certain    
+mod_jk/([0-9\\.]+)	1	mod_jk	Low	Certain
+nginx/([0-9\\.]+)	1	nginx	Low	Certain
 OpenCms/([0-9\\.]+)	1	OpenCms	Low	Certain
-mod_ssl/([0-9\\.]+)	1	mod_ssl	Low	Certain    
-mod_perl/([0-9\\.]+)	1	mod_perl	Low	Certain    
+mod_ssl/([0-9\\.]+)	1	mod_ssl	Low	Certain
+mod_perl/([0-9\\.]+)	1	mod_perl	Low	Certain
 Omniture DC/([0-9\\.]+)	1	Omniture DC (Adobe)	Low	Certain
 OpenSSL/([0-9\\.]+)	1	OpenSSL	Low	Certain
 Oracle-iPlanet-Web-Server/([0-9\\.]+.*)	1	Oracle iPlanet	Low	Certain
 Sun-Java-System-Web-Server/([0-9\\.]+.*)	1	Oracle iPlanet	Low	Certain
 Oracle-Application-Server-([0-9\\.]+.*)	1	Oracle-Application-Server	Low	Certain
 Oracle OpenSSO ([0-9\\.]+.*)	1	Oracle OpenSSO	Low	Certain
-Orion/([0-9\\.]+)	1	Orion	Low	Certain    
-Perl/v([0-9\\.]+)	1	Perl	Low	Certain    
-PHP/([0-9\\.]+)	1	PHP	Low	Certain    
+Orion/([0-9\\.]+)	1	Orion	Low	Certain
+Perl/v([0-9\\.]+)	1	Perl	Low	Certain
+PHP/([0-9\\.]+)	1	PHP	Low	Certain
 Phusion Passenger ([0-9\\.]+)	1	Phusion Passenger	Low	Certain
 Ruby/(([0-9\\.]+)(/[0-9]{4}-[0-9]{2}-[0-9]{2})?)	1	Ruby	Low	Certain
 Servlet[ /]([0-9\\.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
 JSP/([0-9\\.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
 TornadoServer/([0-9\\.]+)	1	Tornado Server	Low	Certain
+Underscore.js ([0-9\\.]+)	1	Underscore.js	Low	Certain
 WEBrick/([0-9\\.]+)	1	WEBrick	Low	Certain
 WebSphere Application Server/([0-9\\.]+)	1	IBM WebSphere Application Server	Low	Certain
 X-AspNet-Version: ([0-9\\.]+)	1	ASP.Net	Low	Certain
