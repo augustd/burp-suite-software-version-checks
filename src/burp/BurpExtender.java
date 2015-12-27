@@ -24,7 +24,7 @@ import javax.swing.JPanel;
  */
 public class BurpExtender extends PassiveScan {
 
-    protected JPanel rulesTable;
+    protected RuleTableComponent rulesTable;
     protected BurpSuiteTab mTab;
     
     @Override
