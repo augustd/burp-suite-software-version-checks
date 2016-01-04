@@ -1,5 +1,5 @@
 Alterian-CME/([0-9\\.]+)	1	Alterian-CME	Low	Certain
-http://errors\\.angularjs\\.org/([0-9\\.]+)/    1   AngularJS   Information Certain
+http://errors\\.angularjs\\.org/([0-9\\.]+)/		1	AngularJS	Information	Certain
 ARR/([0-9\\.]+)	1	IIS Application Request Routing	Low	Certain
 ASP.NET Version:([0-9\\.]+)	1	ASP.Net	Low	Certain
 Apache/([0-9\\.]+( \\([ a-zA-Z]+\\)){0,1})	1	Apache	Low	Certain
