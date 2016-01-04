@@ -1,3 +1,4 @@
+\$gwt_version\s?=\s?"([0-9\.]+)"	1	Google Web Toolkit (GWT)	Low	Certain
 Alterian-CME/([0-9\\.]+)	1	Alterian-CME	Low	Certain
 Apache/([0-9\\.]+( \\([ a-zA-Z]+\\)){0,1})	1	Apache	Low	Certain
 Apache-Coyote/([0-9\\.]+)	1	Apache Coyote (Tomcat)	Low	Certain
@@ -5,7 +6,7 @@ Apache Tomcat/([0-9\\.]+)	1	Apache Tomcat	Low	Certain
 ARR/([0-9\\.]+)	1	IIS Application Request Routing	Low	Certain
 ASP.NET Version:([0-9\\.]+)	1	ASP.Net	Low	Certain
 BOA/([0-9\\.]+)	1	BOA Web Server	Low	Certain
-http://errors\\.angularjs\\.org/([0-9\\.]+)/		1	AngularJS	Information	Certain
+http://errors\\.angularjs\\.org/([0-9\\.]+)/	1	AngularJS	Information	Certain
 IBM_HTTP_Server/([0-9\\.]+)	1	IBM HTTP Server	Low	Certain
 IWeb/([0-9\\.]+)	1	360vision CCTV Web Server	Low	Certain
 JBoss-([0-9\\.]+(GA)?)	1	JBoss	Low	Certain
