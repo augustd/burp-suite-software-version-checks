@@ -38,6 +38,7 @@ nweb/([0-9\\.]+)	1	IBM-NWeb	Low	Certain
 OpenCms/([0-9\\.]+)	1	OpenCms	Low	Certain
 Omniture DC/([0-9\\.]+)	1	Omniture DC (Adobe)	Low	Certain
 OpenSSL/([0-9\\.]+)	1	OpenSSL	Low	Certain
+OnlineOpinion\s+v([\d\.]+)	1	OpinionLab OnlineOpinion	Information	Certain
 Oracle-iPlanet-Web-Server/([0-9\\.]+.*)	1	Oracle iPlanet	Low	Certain
 Oracle-Application-Server-([0-9\\.]+.*)	1	Oracle-Application-Server	Low	Certain
 Oracle OpenSSO ([0-9\\.]+.*)	1	Oracle OpenSSO	Low	Certain
