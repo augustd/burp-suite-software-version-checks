@@ -56,3 +56,5 @@ WebSphere Application Server/([0-9\\.]+)	1	IBM WebSphere Application Server	Low	
 X-AspNet-Version: ([0-9\\.]+)	1	ASP.Net	Low	Certain
 X-AspNetMvc-Version: ([0-9\\.]+)	1	ASP.Net MVC Framework	Low	Certain
 X-OWA-Version: ([0-9\\.]+)	1	Outlook Web Access	Low	Certain
+X-Tealeaf\":\"device\s+\(UIC\)\s+Lib/([\d\.]+)	1	IBM TeaLeaf	Information	Certain
+X-TeaLeaf-UIEventCapture-Version: ([0-9\\.]+)	1	IBM TeaLeaf	Low	Certain
