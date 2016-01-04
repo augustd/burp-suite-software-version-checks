@@ -59,7 +59,7 @@ public class RuleTableComponent extends javax.swing.JPanel {
                     MatchRule rule = scan.getMatchRule(row);
                     mCallbacks.printOutput("rule 1: " + rule); 
                     if (rule == null) {
-                        rule = new MatchRule(Pattern.compile("."), 0, "");
+                        rule = new MatchRule(Pattern.compile("."), 1, "", ScanIssueSeverity.LOW, ScanIssueConfidence.CERTAIN);
                         scan.addMatchRule(rule);
                     }
                     mCallbacks.printOutput("rule 2: " + rule); 
