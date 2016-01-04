@@ -1,4 +1,5 @@
 \$gwt_version\s?=\s?"([0-9\.]+)"	1	Google Web Toolkit (GWT)	Low	Certain
+accounting.js v([0-9\\.]+)	1	accounting.js	Information	Certain
 Alterian-CME/([0-9\\.]+)	1	Alterian-CME	Low	Certain
 Apache/([0-9\\.]+( \\([ a-zA-Z]+\\)){0,1})	1	Apache	Low	Certain
 Apache-Coyote/([0-9\\.]+)	1	Apache Coyote (Tomcat)	Low	Certain
@@ -17,6 +18,7 @@ Joomla! ([0-9\\.]+)	1	Joomla!	Low	Certain
 JSF/([0-9\\.]+)	1	Java Server Faces	Low	Certain
 JSP/([0-9\\.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
 jQuery JavaScript Library v([0-9\\.]+)	1	jQuery JavaScript Library	Information	Certain
+jQuery UI Core ([0-9\\.]+)	1	jQuery UI Core	Information	Certain
 jQuery UI Touch Punch ([0-9\\.]+)	1	jQuery UI Touch Punch	Information	Certain
 jQuery hashchange event - v([0-9\\.]+)	1	jQuery hashchange event	Information	Certain
 jQuery Tiny Pub/Sub - v([0-9\\.]+)	1	jQuery Tiny Pub/Sub	Information	Certain
@@ -24,16 +26,16 @@ jquery[/-]([0-9\\.]+)	1	jQuery	Information	Certain
 jQuery v([0-9\\.]+)	1	jQuery	Information	Certain
 Liferay Portal Enterprise Edition ([0-9\\.]+)	1	Liferay Portal	Low	Certain
 lighttpd/([0-9\\.]+)	1	lighttpd	Low	Certain
-LiteSpeed/([0-9\\.]+)	1	OpenCms	Low	Certain  
+LiteSpeed/([0-9\\.]+)	1	OpenCms	Low	Certain
 Microsoft-HTTPAPI/([0-9\\.]+)	1	Microsoft HTTPAPI	Low	Certain
 Microsoft-IIS/([0-9\\.]+)	1	Microsoft IIS	Low	Certain
 Microsoft \\.NET Framework Version:([0-9\\.]+)	1	Microsoft .Net Framework	Low	Certain
 Microsoft \\.NET Framework ([0-9\\.]+)	1	Microsoft .Net Framework	Low	Certain
 MicrosoftSharePointTeamServices: ([0-9\\.]+)	1	Microsoft SharePoint	Low	Certain
-mod_jk/([0-9\\.]+)	1	mod_jk	Low	Certain    
-mod_ssl/([0-9\\.]+)	1	mod_ssl	Low	Certain    
-mod_perl/([0-9\\.]+)	1	mod_perl	Low	Certain    
-nginx/([0-9\\.]+)	1	nginx	Low	Certain    
+mod_jk/([0-9\\.]+)	1	mod_jk	Low	Certain
+mod_ssl/([0-9\\.]+)	1	mod_ssl	Low	Certain
+mod_perl/([0-9\\.]+)	1	mod_perl	Low	Certain
+nginx/([0-9\\.]+)	1	nginx	Low	Certain
 nweb/([0-9\\.]+)	1	IBM-NWeb	Low	Certain
 OpenCms/([0-9\\.]+)	1	OpenCms	Low	Certain
 Omniture DC/([0-9\\.]+)	1	Omniture DC (Adobe)	Low	Certain
@@ -42,15 +44,16 @@ OnlineOpinion\s+v([\d\.]+)	1	OpinionLab OnlineOpinion	Information	Certain
 Oracle-iPlanet-Web-Server/([0-9\\.]+.*)	1	Oracle iPlanet	Low	Certain
 Oracle-Application-Server-([0-9\\.]+.*)	1	Oracle-Application-Server	Low	Certain
 Oracle OpenSSO ([0-9\\.]+.*)	1	Oracle OpenSSO	Low	Certain
-Orion/([0-9\\.]+)	1	Orion	Low	Certain    
-Perl/v([0-9\\.]+)	1	Perl	Low	Certain    
-PHP/([0-9\\.]+)	1	PHP	Low	Certain    
+Orion/([0-9\\.]+)	1	Orion	Low	Certain
+Perl/v([0-9\\.]+)	1	Perl	Low	Certain
+PHP/([0-9\\.]+)	1	PHP	Low	Certain
 Phusion Passenger( \([a-zA-Z_/]+\))? ([0-9\.]+)	2	Phusion Passenger	Low	Certain
 Ruby/(([0-9\\.]+)(/[0-9]{4}-[0-9]{2}-[0-9]{2})?)	1	Ruby	Low	Certain
 Servlet[ /]([0-9\\.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
 Sun-Java-System-Web-Server/([0-9\\.]+.*)	1	Oracle iPlanet	Low	Certain
 Tomcat-([0-9\\.]+)	1	JBoss (Tomcat)	Low	Certain
 TornadoServer/([0-9\\.]+)	1	Tornado Server	Low	Certain
++Underscore.js ([0-9\\.]+)	1	Underscore.js	Information	Certain
 WEBrick/([0-9\\.]+)	1	WEBrick	Low	Certain
 WebSphere Application Server/([0-9\\.]+)	1	IBM WebSphere Application Server	Low	Certain
 X-AspNet-Version: ([0-9\\.]+)	1	ASP.Net	Low	Certain
