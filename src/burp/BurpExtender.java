@@ -31,6 +31,9 @@ public class BurpExtender extends PassiveScan {
     protected void initPassiveScan() {
 	//set the extension Name
 	extensionName = "Software Version Checks";
+        
+        //set the settings namespace 
+        settingsNamespace = "SVC_";
 	
 	rulesTable = new RuleTableComponent(this, callbacks);
         

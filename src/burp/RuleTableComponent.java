@@ -24,7 +24,7 @@ public class RuleTableComponent extends javax.swing.JPanel {
     PassiveScan scan;
 
     public static final String DEFAULT_URL = "https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/burp/match-rules.tab";
-    public static final String SETTING_URL = "SVC_SETTING_URL";
+    public static final String SETTING_URL = "SETTING_URL";
     
     /**
      * Creates new form BurpSuiteTab
@@ -141,11 +141,11 @@ public class RuleTableComponent extends javax.swing.JPanel {
         mCallbacks.printOutput("Saving settings...");
         
         // Clear settings
-        mCallbacks.saveExtensionSetting(SETTING_URL, null);
+        mCallbacks.saveExtensionSetting(scan.getSettingsNamespace() + SETTING_URL, null);
         
         // Store settings
         mCallbacks.printOutput("Saving URL: " + urlTextField.getText());
-        mCallbacks.saveExtensionSetting(SETTING_URL, urlTextField.getText());
+        mCallbacks.saveExtensionSetting(scan.getSettingsNamespace() + SETTING_URL, urlTextField.getText());
     }
     
     /**
@@ -154,7 +154,7 @@ public class RuleTableComponent extends javax.swing.JPanel {
     public void restoreSettings() {
         mCallbacks.printOutput("Restoring settings...");
         
-        String settingUrl = mCallbacks.loadExtensionSetting(SETTING_URL);
+        String settingUrl = mCallbacks.loadExtensionSetting(scan.getSettingsNamespace() + SETTING_URL);
         mCallbacks.printOutput("Loaded URL: " + settingUrl);
         if (settingUrl != null) {
             urlTextField.setText(settingUrl);
