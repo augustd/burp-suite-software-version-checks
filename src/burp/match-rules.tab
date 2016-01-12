@@ -53,7 +53,7 @@ Servlet[ /]([0-9\\.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certai
 Sun-Java-System-Web-Server/([0-9\\.]+.*)	1	Oracle iPlanet	Low	Certain
 Tomcat-([0-9\\.]+)	1	JBoss (Tomcat)	Low	Certain
 TornadoServer/([0-9\\.]+)	1	Tornado Server	Low	Certain
-+Underscore.js ([0-9\\.]+)	1	Underscore.js	Information	Certain
+Underscore.js ([0-9\\.]+)	1	Underscore.js	Information	Certain
 WEBrick/([0-9\\.]+)	1	WEBrick	Low	Certain
 WebSphere Application Server/([0-9\\.]+)	1	IBM WebSphere Application Server	Low	Certain
 X-AspNet-Version: ([0-9\\.]+)	1	ASP.Net	Low	Certain
