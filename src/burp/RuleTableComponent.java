@@ -12,6 +12,7 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.net.URL;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 import javax.swing.DefaultCellEditor;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -110,15 +111,20 @@ public class RuleTableComponent extends javax.swing.JPanel {
 		String[] values = str.split("\\t");
 		model.addRow(values);
 
-		Pattern pattern = Pattern.compile(values[0]);
-                
-		scan.addMatchRule(new MatchRule(
-			pattern, 
-			new Integer(values[1]), 
-			values[2], 
-			ScanIssueSeverity.fromName(values[3]),
-			ScanIssueConfidence.fromName(values[4]))
-		);
+                try {
+                    Pattern pattern = Pattern.compile(values[0]);
+
+                    scan.addMatchRule(new MatchRule(
+                            pattern, 
+                            new Integer(values[1]), 
+                            values[2], 
+                            ScanIssueSeverity.fromName(values[3]),
+                            ScanIssueConfidence.fromName(values[4]))
+                    );
+                } catch (PatternSyntaxException pse) {
+                    mCallbacks.printError("Unable to compile pattern: " + values[0] + " for: " + values[2]);
+                    scan.printStackTrace(pse);
+                }
 	    }
             
             return true;
