@@ -19,6 +19,7 @@ Joomla! 3.0.2.100
 JSF/3.0.2.100
 JSP/3.0.2.100
 jQuery JavaScript Library v3.0.2.100
+jQuery UI 1.7.2
 jQuery UI Core 3.0.2.100
 jQuery UI Touch Punch 3.0.2.100
 jQuery hashchange event - v3.0.2.100

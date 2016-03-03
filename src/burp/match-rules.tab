@@ -18,6 +18,7 @@ Joomla! ([\d.]+)	1	Joomla!	Low	Certain
 JSF/([\d.]+)	1	Java Server Faces	Low	Certain
 JSP/([\d.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
 jQuery JavaScript Library v([\d.]+)	1	jQuery JavaScript Library	Information	Certain
+jQuery UI ([\d.]+)	1	jQuery UI	Information	Certain
 jQuery UI Core ([\d.]+)	1	jQuery UI Core	Information	Certain
 jQuery UI Touch Punch ([\d.]+)	1	jQuery UI Touch Punch	Information	Certain
 jQuery hashchange event - v([\d.]+)	1	jQuery hashchange event	Information	Certain
