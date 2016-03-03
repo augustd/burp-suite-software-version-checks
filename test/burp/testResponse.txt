@@ -1,0 +1,64 @@
+$gwt_version = "2.5.1"
+accounting.js v3.0.2.100
+Alterian-CME/3.0.2.100
+Server: Apache/2.2.4 (Unix) mod_perl/2.0.3 Perl/v5.8.8
+Apache-Coyote/1.1
+Apache Tomcat/6.0.24 - Error report
+ARR/3.0.2.100
+ASP.NET Version:3.0.2.100
+BOA/3.0.2.100
+http://errors.angularjs.org/3.0.2.100/
+IBM_HTTP_Server/3.0.2.100
+IWeb/3.0.2.100
+JBoss-2.0.0.GA
+(build: CVSTag=JBoss_4_0_3 date=200510042324)
+JBossWeb/2.0.0.GA_CP16_JBPAPP_10368 - Error report
+JBoss Web/2.1.12.GA-patch-03
+JBossWeb/2.0.0.GA_CP16_JBPAPP_10368 - Error report
+Joomla! 3.0.2.100
+JSF/3.0.2.100
+JSP/3.0.2.100
+jQuery JavaScript Library v3.0.2.100
+jQuery UI Core 3.0.2.100
+jQuery UI Touch Punch 3.0.2.100
+jQuery hashchange event - v3.0.2.100
+jQuery Tiny Pub/Sub - v3.0.2.100
+jquery-2.1.12
+jQuery v3.0.2.100
+Liferay Portal Enterprise Edition 3.0.2.100
+lighttpd/3.0.2.100
+LiteSpeed/3.0.2.100
+Microsoft-HTTPAPI/3.0.2.100
+Microsoft-IIS/3.0.2.100
+Microsoft .NET Framework Version:3.0.2.100
+Microsoft .NET Framework 3.0.2.100
+MicrosoftSharePointTeamServices: 3.0.2.100
+mod_jk/3.0.2.100
+mod_ssl/3.0.2.100
+mod_perl/3.0.2.100
+nginx/3.0.2.100
+nweb/3.0.2.100
+OpenCms/3.0.2.100
+Omniture DC/3.0.2.100
+OpenSSL/3.0.2.100
+OnlineOpinion v5.9.0
+Oracle-iPlanet-Web-Server/7.0.22
+Server: Oracle-Application-Server-11g/Oracle Web-Cache-11g/11.1.1.1.0 (N;ecid=104327518477,0)
+Oracle OpenSSO 1.1.11
+Orion/3.0.2.100
+Perl/v3.0.2.100
+PHP/3.0.2.100
+X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.13
+Ruby/3.2/2010-11-12
+Servlet 3.0.2.100
+Sun-Java-System-Web-Server/3.0.2.100
+Tomcat-3.0.2.100
+TornadoServer/3.0.2.100
+Underscore.js 3.0.2.100
+WEBrick/3.0.2.100
+WebSphere Application Server/3.0.2.100
+X-AspNet-Version: 4.0.30319
+X-AspNetMvc-Version: 3.0.2.100
+X-OWA-Version: 3.0.2.100
+X-Tealeaf":"device (UIC) Lib/3.0.2.100
+X-TeaLeaf-UIEventCapture-Version: 3.0.2.100
