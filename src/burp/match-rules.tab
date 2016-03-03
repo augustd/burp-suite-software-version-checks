@@ -7,6 +7,7 @@ Apache Tomcat/([\d.]+)	1	Apache Tomcat	Low	Certain
 ARR/([\d.]+)	1	IIS Application Request Routing	Low	Certain
 ASP\.NET Version:([\d.]+)	1	ASP.Net	Low	Certain
 BOA/([\d.]+)	1	BOA Web Server	Low	Certain
+CKEDITOR.*version:"([\d.]+)"	1	CKEditor	Information	Certain
 http://errors\.angularjs\.org/([\d.]+)/	1	AngularJS	Information	Certain
 IBM_HTTP_Server/([\d.]+)	1	IBM HTTP Server	Low	Certain
 IWeb/([\d.]+)	1	360vision CCTV Web Server	Low	Certain

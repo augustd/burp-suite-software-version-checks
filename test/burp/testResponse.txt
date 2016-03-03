@@ -7,6 +7,7 @@ Apache Tomcat/6.0.24 - Error report
 ARR/3.0.2.100
 ASP.NET Version:3.0.2.100
 BOA/3.0.2.100
+CKEDITOR=function(){var a=/(^|.*[\\\/])ckeditor\.js(?:\?.*|;.*)?$/i,d={timestamp:"G14E",version:"4.5.7"
 http://errors.angularjs.org/3.0.2.100/
 IBM_HTTP_Server/3.0.2.100
 IWeb/3.0.2.100
