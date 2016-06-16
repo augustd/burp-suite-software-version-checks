@@ -1,6 +1,7 @@
 \$gwt_version\s?=\s?"([\d.]+)"	1	Google Web Toolkit (GWT)	Low	Certain
 accounting\.js v([\d.]+)	1	accounting.js	Information	Certain
 Alterian-CME/([\d.]+)	1	Alterian-CME	Low	Certain
+([-\d.]+)amzn1.x86_64	1	Amazon Linux	Low	Certain
 Apache/([\d.]+(?: \([ \w]+\))?)	1	Apache	Low	Certain
 Apache-Coyote/([\d.]+)	1	Apache Coyote (Tomcat)	Low	Certain
 Apache Tomcat/([\d.]+)	1	Apache Tomcat	Low	Certain
