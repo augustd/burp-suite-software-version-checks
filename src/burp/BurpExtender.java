@@ -16,8 +16,8 @@ import java.util.List;
  * <li>Server: Apache/2.2.4 (Unix) mod_perl/2.0.3 Perl/v5.8.8
  * <li>X-AspNet-Version: 4.0.30319
  *
- * @author August Detlefsen <augustd at codemagi dot com>
- * @contributor Thomas Dosedel <thom at secureideas dot com>
+ * @author August Detlefsen [augustd at codemagi dot com]
+ * @contributor Thomas Dosedel [thom at secureideas dot com] for match rules
  */
 public class BurpExtender extends PassiveScan {
 
