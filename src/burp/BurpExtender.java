@@ -1,15 +1,12 @@
 package burp;
 
 import com.codemagi.burp.PassiveScan;
-import com.codemagi.burp.MatchRule;
 import com.codemagi.burp.ScanIssue;
 import com.codemagi.burp.ScanIssueConfidence;
 import com.codemagi.burp.ScanIssueSeverity;
 import com.codemagi.burp.ScannerMatch;
 import com.monikamorrow.burp.BurpSuiteTab;
 import java.util.List;
-import java.util.regex.Pattern;
-import javax.swing.JPanel;
 
 /**
  * Burp Extender to find instances of applications revealing software version numbers
@@ -24,14 +21,17 @@ import javax.swing.JPanel;
  */
 public class BurpExtender extends PassiveScan {
 
-    public static String TAB_NAME = "Versions";
-    public static String EXTENSION_NAME = "Software Version Checks";
+    public static final String TAB_NAME = "Versions";
+    public static final String EXTENSION_NAME = "Software Version Checks";
 
     protected RuleTableComponent rulesTable;
     protected BurpSuiteTab mTab;
 
     @Override
     protected void initPassiveScan() {
+        //set the extension Name		 
+ 	extensionName = EXTENSION_NAME;
+        
         //set the settings namespace
         settingsNamespace = "SVC_";
 
