@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import org.junit.After;
 import org.junit.AfterClass;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -42,12 +42,20 @@ public class RegexTest {
 
     @Before
     public void setUp() throws Exception {
-        loadMatchRules("/burp/match-rules.tab");
         loadTestResponse();
     }
 
     @After
     public void tearDown() throws Exception {
+    }
+    
+    @Test
+    public void testLoadMatchRules() {
+        System.out.println("***** testLoadMatchRules *****");
+        
+        Boolean loadSuccessful = loadMatchRules("/burp/match-rules.tab");
+        
+        assertTrue(loadSuccessful);
     }
     
     @Test

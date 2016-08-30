@@ -62,7 +62,7 @@ WEBrick/([\d.]+)	1	WEBrick	Low	Certain
 WebSphere Application Server/([\d.]+)	1	IBM WebSphere Application Server	Low	Certain
 X-AspNet-Version: ([\d.]+)	1	ASP.Net	Low	Certain
 X-AspNetMvc-Version: ([\d.]+)	1	ASP.Net MVC Framework	Low	Certain
-X-Cocoon-Version: ([\d.]+)      1       Apache Cocoon           Low     Certain
+X-Cocoon-Version: ([\d.]+)	1	Apache Cocoon	Low	Certain
 X-OWA-Version: ([\d.]+)	1	Outlook Web Access	Low	Certain
 X-Tealeaf":"device\s+\(UIC\)\s+Lib/([\d.]+)	1	IBM TeaLeaf	Information	Certain
 X-TeaLeaf-UIEventCapture-Version: ([\d.]+)	1	IBM TeaLeaf	Low	Certain
