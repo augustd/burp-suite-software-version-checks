@@ -59,6 +59,7 @@ Tomcat-([\d.]+)	1	JBoss (Tomcat)	Low	Certain
 TornadoServer/([\d.]+)	1	Tornado Server	Low	Certain
 Underscore\.js ([\d.]+)	1	Underscore.js	Information	Certain
 WEBrick/([\d.]+)	1	WEBrick	Low	Certain
+WebSockify Python/([\d.]+)	1	Python (Websockify)	Low	Certain
 WebSphere Application Server/([\d.]+)	1	IBM WebSphere Application Server	Low	Certain
 X-AspNet-Version: ([\d.]+)	1	ASP.Net	Low	Certain
 X-AspNetMvc-Version: ([\d.]+)	1	ASP.Net MVC Framework	Low	Certain
