@@ -33,7 +33,7 @@ public class RuleTableComponent extends javax.swing.JPanel {
      * @param scan
      * @param callbacks For UI Look and Feel
      */
-    public RuleTableComponent(PassiveScan scan, IBurpExtenderCallbacks callbacks) {
+    public RuleTableComponent(final PassiveScan scan, IBurpExtenderCallbacks callbacks) {
 
 	mCallbacks = callbacks;
 	this.scan = scan;
@@ -49,7 +49,7 @@ public class RuleTableComponent extends javax.swing.JPanel {
         loadMatchRules(urlTextField.getText()); 
 
         //add a listener for changes to the table model
-        DefaultTableModel model = (DefaultTableModel)rules.getModel();
+        final DefaultTableModel model = (DefaultTableModel)rules.getModel();
         model.addTableModelListener(new TableModelListener() {
             public void tableChanged(TableModelEvent e) {
                 if (TableModelEvent.UPDATE == e.getType()) {

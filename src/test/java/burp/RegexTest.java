@@ -9,8 +9,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -53,7 +53,7 @@ public class RegexTest {
     public void testLoadMatchRules() {
         System.out.println("***** testLoadMatchRules *****");
         
-        Boolean loadSuccessful = loadMatchRules("/burp/match-rules.tab");
+        Boolean loadSuccessful = loadMatchRules("burp/match-rules.tab");
         
         assertTrue(loadSuccessful);
     }
@@ -84,7 +84,7 @@ public class RegexTest {
 	//load match rules from file
 	try {
 	    //read match rules from the stream
-	    InputStream is = this.getClass().getResourceAsStream(url); //new URL(url).openStream();
+	    InputStream is = BurpExtender.class.getClassLoader().getResourceAsStream(url); //new URL(url).openStream();
 	    BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 	    
 	    String str;
@@ -120,7 +120,7 @@ public class RegexTest {
 	    e.printStackTrace();
 	} catch (NumberFormatException e) {
 	    e.printStackTrace();
-	}
+        }
         
         return false;
     }
@@ -132,8 +132,9 @@ public class RegexTest {
 	//load match rules from file
 	try {
 	    //read match rules from the stream
-            URL path = RegexTest.class.getResource("testResponse.txt");
-            File f = new File(path.toURI());
+            Class clazz = getClass();
+            URI path = clazz.getClassLoader().getResource("burp/testResponse.txt").toURI();
+            File f = new File(path);
 	    BufferedReader reader = new BufferedReader(new FileReader(f));
 	    
 	    String str;
