@@ -60,6 +60,7 @@ Sun-Java-System-Web-Server/3.0.2.100
 Tomcat-3.0.2.100
 TornadoServer/3.0.2.100
 Underscore.js 3.0.2.100
+var APPLICATION_FULL_VERSION = '1.2.3.4';
 WEBrick/3.0.2.100
 Server: WebSockify Python/1.2.3
 WebSphere Application Server/3.0.2.100
