@@ -1,1 +1,70 @@
-../main/resources/burp/match-rules.tab
+\$gwt_version\s?=\s?"([\d.]+)"	1	Google Web Toolkit (GWT)	Low	Certain
+accounting\.js v([\d.]+)	1	accounting.js	Information	Certain
+Alterian-CME/([\d.]+)	1	Alterian-CME	Low	Certain
+([-\d.]+)amzn1.x86_64	1	Amazon Linux	Low	Certain
+Apache/([\d.]+(?: \([ \w]+\))?)	1	Apache	Low	Certain
+Apache-Coyote/([\d.]+)	1	Apache Coyote (Tomcat)	Low	Certain
+Apache Tomcat/([\d.]+)	1	Apache Tomcat	Low	Certain
+ARR/([\d.]+)	1	IIS Application Request Routing	Low	Certain
+ASP\.NET Version:([\d.]+)	1	ASP.Net	Low	Certain
+BOA/([\d.]+)	1	BOA Web Server	Low	Certain
+CKEDITOR.*version:"([\d.]+)"	1	CKEditor	Information	Certain
+http://errors\.angularjs\.org/([\d.]+)/	1	AngularJS	Information	Certain
+Hiawatha v([\d.]+)	1	Hiawatha	Low	Certain
+IBM_HTTP_Server/([\d.]+)	1	IBM HTTP Server	Low	Certain
+IWeb/([\d.]+)	1	360vision CCTV Web Server	Low	Certain
+JBoss-([\d.]+(?:GA)?)	1	JBoss	Low	Certain
+JBoss_([\d_]+)	1	JBoss	Low	Certain
+JBPAPP_([\d_]+(?:GA)?)	1	JBoss	Low	Certain
+JBossWeb/([\d.]+(?:GA)?)	1	JBoss Webserver	Low	Certain
+Joomla! ([\d.]+)	1	Joomla!	Low	Certain
+JSF/([\d.]+)	1	Java Server Faces	Low	Certain
+JSP/([\d.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
+jQuery JavaScript Library v([\d.]+)	1	jQuery JavaScript Library	Information	Certain
+jQuery UI ([\d.]+)	1	jQuery UI	Information	Certain
+jQuery UI Core ([\d.]+)	1	jQuery UI Core	Information	Certain
+jQuery UI Touch Punch ([\d.]+)	1	jQuery UI Touch Punch	Information	Certain
+jQuery hashchange event - v([\d.]+)	1	jQuery hashchange event	Information	Certain
+jQuery Tiny Pub/Sub - v([\d.]+)	1	jQuery Tiny Pub/Sub	Information	Certain
+jquery[/-]([\d.]+)	1	jQuery	Information	Certain
+jQuery v([\d.]+)	1	jQuery	Information	Certain
+Liferay Portal Enterprise Edition ([\d.]+)	1	Liferay Portal	Low	Certain
+lighttpd/([\d.]+)	1	lighttpd	Low	Certain
+LiteSpeed/([\d.]+)	1	OpenCms	Low	Certain
+Microsoft-HTTPAPI/([\d.]+)	1	Microsoft HTTPAPI	Low	Certain
+Microsoft-IIS/([\d.]+)	1	Microsoft IIS	Low	Certain
+Microsoft \.NET Framework Version:([\d.]+)	1	Microsoft .Net Framework	Low	Certain
+Microsoft \.NET Framework ([\d.]+)	1	Microsoft .Net Framework	Low	Certain
+MicrosoftSharePointTeamServices: ([\d.]+)	1	Microsoft SharePoint	Low	Certain
+mod_jk/([\d.]+)	1	mod_jk	Low	Certain
+mod_ssl/([\d.]+)	1	mod_ssl	Low	Certain
+mod_perl/([\d.]+)	1	mod_perl	Low	Certain
+nginx/([\d.]+)	1	nginx	Low	Certain
+nweb/([\d.]+)	1	IBM-NWeb	Low	Certain
+OpenCms/([\d.]+)	1	OpenCms	Low	Certain
+Omniture DC/([\d.]+)	1	Omniture DC (Adobe)	Low	Certain
+OpenSSL/([\d.]+)	1	OpenSSL	Low	Certain
+OnlineOpinion\s+v([\d.]+)	1	OpinionLab OnlineOpinion	Information	Certain
+Oracle-iPlanet-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
+Oracle-Application-Server-([\d.]+.*)	1	Oracle-Application-Server	Low	Certain
+Oracle OpenSSO ([\d.]+.*)	1	Oracle OpenSSO	Low	Certain
+Orion/([\d.]+)	1	Orion	Low	Certain
+NSC/([\d.]+) \(JVM\)	1	Nexpose	Low	Certain
+Perl/v([\d.]+)	1	Perl	Low	Certain
+PHP/([\d.]+)	1	PHP	Low	Certain
+Phusion Passenger(?: \([a-zA-Z_/]+\))? ([\d.]+)	1	Phusion Passenger	Low	Certain
+Ruby/([\d.]+(?:/\d{4}-\d{2}-\d{2})?)	1	Ruby	Low	Certain
+Servlet[ /]([\d.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
+Sun-Java-System-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
+Tomcat-([\d.]+)	1	JBoss (Tomcat)	Low	Certain
+TornadoServer/([\d.]+)	1	Tornado Server	Low	Certain
+Underscore\.js ([\d.]+)	1	Underscore.js	Information	Certain
+WEBrick/([\d.]+)	1	WEBrick	Low	Certain
+WebSockify Python/([\d.]+)	1	Python (Websockify)	Low	Certain
+WebSphere Application Server/([\d.]+)	1	IBM WebSphere Application Server	Low	Certain
+X-AspNet-Version: ([\d.]+)	1	ASP.Net	Low	Certain
+X-AspNetMvc-Version: ([\d.]+)	1	ASP.Net MVC Framework	Low	Certain
+X-Cocoon-Version: ([\d.]+)	1	Apache Cocoon	Low	Certain
+X-OWA-Version: ([\d.]+)	1	Outlook Web Access	Low	Certain
+X-Tealeaf":"device\s+\(UIC\)\s+Lib/([\d.]+)	1	IBM TeaLeaf	Information	Certain
+X-TeaLeaf-UIEventCapture-Version: ([\d.]+)	1	IBM TeaLeaf	Low	Certain
