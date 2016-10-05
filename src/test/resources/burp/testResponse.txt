@@ -54,6 +54,9 @@ Server: NSC/0.6.4 (JVM)
 Perl/v3.0.2.100
 PHP/3.0.2.100
 X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.13
+var Prototype = {
+
+  Version: '1.7.3',
 Ruby/3.2/2010-11-12
 Servlet 3.0.2.100
 Sun-Java-System-Web-Server/3.0.2.100
