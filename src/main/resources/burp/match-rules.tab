@@ -59,7 +59,7 @@ Sun-Java-System-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
 Tomcat-([\d.]+)	1	JBoss (Tomcat)	Low	Certain
 TornadoServer/([\d.]+)	1	Tornado Server	Low	Certain
 Underscore\.js ([\d.]+)	1	Underscore.js	Information	Certain
-var APPLICATION_FULL_VERSION = '([\d.]+)';      1	Microsoft CRM	Information	Certain
+var APPLICATION_FULL_VERSION = '([\d.]+)';	1	Microsoft CRM	Information	Certain
 WEBrick/([\d.]+)	1	WEBrick	Low	Certain
 WebSockify Python/([\d.]+)	1	Python (Websockify)	Low	Certain
 WebSphere Application Server/([\d.]+)	1	IBM WebSphere Application Server	Low	Certain
