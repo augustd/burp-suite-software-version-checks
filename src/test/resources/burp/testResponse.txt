@@ -40,6 +40,8 @@ MicrosoftSharePointTeamServices: 3.0.2.100
 mod_jk/3.0.2.100
 mod_ssl/3.0.2.100
 mod_perl/3.0.2.100
+mustache.version = '2.2.1';
+var l={name:"mustache.js",version:"0.7.0",tags:["{{","}}"]}
 nginx/3.0.2.100
 nweb/3.0.2.100
 OpenCms/3.0.2.100

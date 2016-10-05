@@ -39,6 +39,8 @@ MicrosoftSharePointTeamServices: ([\d.]+)	1	Microsoft SharePoint	Low	Certain
 mod_jk/([\d.]+)	1	mod_jk	Low	Certain
 mod_ssl/([\d.]+)	1	mod_ssl	Low	Certain
 mod_perl/([\d.]+)	1	mod_perl	Low	Certain
+mustache\.version\s*=\s*'([\d.]+)'	1	Mustache.js	Information	Certain
+name:"mustache.js",version:"([\d.]+)"	1	Mustache.js	Information	Certain
 nginx/([\d.]+)	1	nginx	Low	Certain
 nweb/([\d.]+)	1	IBM-NWeb	Low	Certain
 OpenCms/([\d.]+)	1	OpenCms	Low	Certain
