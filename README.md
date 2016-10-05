@@ -7,6 +7,6 @@ Often the server version is revealed only on error responses, which may not be v
 - "Server: Apache/2.2.4 (Unix) mod_perl/2.0.3 Perl/v5.8.8"
 - "X-AspNet-Version: 4.0.30319"
 
-Match rules are loaded from a [remote tab-delimited file](https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/burp/match-rules.tab) at extension startup.
+Match rules are loaded from a [remote tab-delimited file](https://github.com/augustd/burp-suite-software-version-checks/blob/master/src/main/resources/burp/match-rules.tab) at extension startup.
 
 Users can also load their own match rules from a local file or using the BApp GUI.
