@@ -24,7 +24,7 @@ public class RuleTableComponent extends javax.swing.JPanel {
     IBurpExtenderCallbacks mCallbacks;
     PassiveScan scan;
 
-    public static final String DEFAULT_URL = "https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/burp/match-rules.tab";
+    public static final String DEFAULT_URL = "https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/main/resources/burp/match-rules.tab";
     public static final String SETTING_URL = "SETTING_URL";
     
     /**
