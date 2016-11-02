@@ -43,6 +43,7 @@ public class RegexTest {
     @Before
     public void setUp() throws Exception {
         loadTestResponse();
+        testLoadMatchRules();
     }
 
     @After
@@ -66,7 +67,15 @@ public class RegexTest {
         
         for (MatchRule rule : matchRules) {
             Matcher matcher = rule.getPattern().matcher(testResponse);
-	    if (matcher.find()) {
+            int expectedMatches = (rule.getExpectedMatches() != null) ? rule.getExpectedMatches() : 1 ;
+            int foundMatches = 0;
+            while (matcher.find()) {
+                foundMatches++;
+            }
+            
+            System.out.println("Testing rule: " + rule.getPattern() + " matches: " + foundMatches);
+            
+	    if (foundMatches >= expectedMatches) { //(matcher.find()) {
                 matchCount++;
             } else {
                 System.out.println("Unable to find match for: " + rule.getPattern());
@@ -106,6 +115,10 @@ public class RegexTest {
                             ScanIssueSeverity.fromName(values[3]),
                             ScanIssueConfidence.fromName(values[4])
                     );
+                    
+                    if (values.length > 5) {
+                        rule.setExpectedMatches(new Integer(values[5]));
+                    }
                     
                     matchRules.add(rule);
                     
