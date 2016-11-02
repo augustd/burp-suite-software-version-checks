@@ -57,7 +57,8 @@ PHP/([\d.]+)	1	PHP	Low	Certain
 Phusion Passenger(?: \([a-zA-Z_/]+\))? ([\d.]+)	1	Phusion Passenger	Low	Certain
 Prototype\s*=\s*\{\s*Version:\s*["']([\d.]+)["']	1	Prototype	Information	Certain
 Ruby/([\d.]+(?:/\d{4}-\d{2}-\d{2})?)	1	Ruby	Low	Certain
-Servlet[ /]([\d.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
+Servlet[ /]([\d.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain
+Sizzle (?:CSS Selector Engine[- ]*)?v([\d.]+(?:-\w+)?)	2	Sizzle CSS Selector Engine	Information	Certain	3
 Sun-Java-System-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
 Tomcat-([\d.]+)	1	JBoss (Tomcat)	Low	Certain
 TornadoServer/([\d.]+)	1	Tornado Server	Low	Certain

@@ -61,6 +61,9 @@ var Prototype = {
   Version: '1.7.3',
 Ruby/3.2/2010-11-12
 Servlet 3.0.2.100
+ * Sizzle CSS Selector Engine - v0.9.3
+ * Sizzle CSS Selector Engine v2.3.4-pre
+/*! Sizzle v2.3.4-pre | (c) jQuery Foundation, Inc. | jquery.org/license */
 Sun-Java-System-Web-Server/3.0.2.100
 Tomcat-3.0.2.100
 TornadoServer/3.0.2.100
