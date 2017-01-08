@@ -1,0 +1,11 @@
+Uuid: ae62baff8fa24150991bad5eaf6d4d38
+ExtensionType: 1
+Name: Software Version Reporter
+ScreenVersion: 1.5
+SerialVersion: 6
+MinPlatformVersion: 0
+ProOnly: True
+Author: August Detlefsen
+ShortDescription: Passively reports server software version numbers.
+EntryPoint: target/burp-suite-software-version-checks-1.0.jar
+BuildCommand: mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B

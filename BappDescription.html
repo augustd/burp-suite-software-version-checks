@@ -1,0 +1,15 @@
+<p>This extension passively detects server software version numbers during scanning, spidering etc.</p>
+<p>Often the server version is revealed only on error responses, which may not be visible during the normal course of testing.
+Some examples are:</p>
+<ul>
+    <li>"Apache Tomcat/6.0.24 - Error report"</li>
+    <li>"Server: Apache/2.2.4 (Unix) mod_perl/2.0.3 Perl/v5.8.8"</li>
+    <li>"X-AspNet-Version: 4.0.30319"</li>
+</ul>
+<p>Match rules are loaded from a remote tab-delimited file at extension startup.</p>
+<p>Users can also load their own match rules from a local file or using the BApp GUI.</p>
+<p>To view the source code or submit new match rules, go to GitHub:</p>
+<ul>
+    <li><a href="https://github.com/augustd/burp-suite-software-version-checks">https://github.com/augustd/burp-suite-software-version-checks</a></li>
+</ul>
+<p>Requires Java version 7.</p>
