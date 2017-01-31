@@ -27,7 +27,8 @@ jQuery UI Core 3.0.2.100
 jQuery UI Touch Punch 3.0.2.100
 jQuery hashchange event - v3.0.2.100
 jQuery Tiny Pub/Sub - v3.0.2.100
-jquery-2.1.12
+focusable.js, form-reset-mixin.js, jquery-1-7.js, keycode.js,
+<script src="/Scripts/jquery-3.1.1.js"></script>
 jQuery v3.0.2.100
 Liferay Portal Enterprise Edition 3.0.2.100
 lighttpd/3.0.2.100

@@ -26,7 +26,7 @@ jQuery UI Core ([\d.]+)	1	jQuery UI Core	Information	Certain
 jQuery UI Touch Punch ([\d.]+)	1	jQuery UI Touch Punch	Information	Certain
 jQuery hashchange event - v([\d.]+)	1	jQuery hashchange event	Information	Certain
 jQuery Tiny Pub/Sub - v([\d.]+)	1	jQuery Tiny Pub/Sub	Information	Certain
-jquery[/-]([\d.]+)	1	jQuery	Information	Certain
+jquery[/-]([\d-.]+)	1	jQuery	Information	Certain	2
 jQuery v([\d.]+)	1	jQuery	Information	Certain
 Liferay Portal Enterprise Edition ([\d.]+)	1	Liferay Portal	Low	Certain
 lighttpd/([\d.]+)	1	lighttpd	Low	Certain
