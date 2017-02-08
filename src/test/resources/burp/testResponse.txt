@@ -1,5 +1,6 @@
 $gwt_version = "2.5.1"
 accounting.js v3.0.2.100
+Server: akka-http/2.4.9
 Alterian-CME/3.0.2.100
 "osVersion" : "4.1.13-19.31.amzn1.x86_64"
 Server: Apache/2.2.4 (Unix) mod_perl/2.0.3 Perl/v5.8.8
@@ -65,6 +66,7 @@ Servlet 3.0.2.100
  * Sizzle CSS Selector Engine - v0.9.3
  * Sizzle CSS Selector Engine v2.3.4-pre
 /*! Sizzle v2.3.4-pre | (c) jQuery Foundation, Inc. | jquery.org/license */
+Server: spray-can/1.3.3
 Sun-Java-System-Web-Server/3.0.2.100
 Tomcat-3.0.2.100
 TornadoServer/3.0.2.100
