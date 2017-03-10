@@ -12,6 +12,8 @@ BOA/3.0.2.100
 CKEDITOR=function(){var a=/(^|.*[\\\/])ckeditor\.js(?:\?.*|;.*)?$/i,d={timestamp:"G14E",version:"4.5.7"
 http://errors.angularjs.org/3.0.2.100/
 Server: Hiawatha v1.2
+Handlebars.VERSION = "1.0.beta.6";
+Handlebars.VERSION="1.0.beta.6";
 IBM_HTTP_Server/3.0.2.100
 IWeb/3.0.2.100
 JBoss-2.0.0.GA

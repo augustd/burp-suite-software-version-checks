@@ -12,6 +12,7 @@ BOA/([\d.]+)	1	BOA Web Server	Low	Certain
 CKEDITOR.*version:"([\d.]+)"	1	CKEditor	Information	Certain
 http://errors\.angularjs\.org/([\d.]+)/	1	AngularJS	Information	Certain
 Hiawatha v([\d.]+)	1	Hiawatha	Low	Certain
+Handlebars\.VERSION\s*=\s*["']([\w.]+)["']	1	Handlebars.js	Information	Certain	2
 IBM_HTTP_Server/([\d.]+)	1	IBM HTTP Server	Low	Certain
 IWeb/([\d.]+)	1	360vision CCTV Web Server	Low	Certain
 JBoss-([\d.]+(?:GA)?)	1	JBoss	Low	Certain
