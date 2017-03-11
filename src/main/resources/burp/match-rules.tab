@@ -10,6 +10,7 @@ ARR/([\d.]+)	1	IIS Application Request Routing	Low	Certain
 ASP\.NET Version:([\d.]+)	1	ASP.Net	Low	Certain
 BOA/([\d.]+)	1	BOA Web Server	Low	Certain
 CKEDITOR.*version:"([\d.]+)"	1	CKEditor	Information	Certain
+Ember\.VERSION\s*=\s*["']([\w.]+)["']	1	Ember	Information	Certain	2
 http://errors\.angularjs\.org/([\d.]+)/	1	AngularJS	Information	Certain
 Hiawatha v([\d.]+)	1	Hiawatha	Low	Certain
 Handlebars\.VERSION\s*=\s*["']([\w.]+)["']	1	Handlebars.js	Information	Certain	2
