@@ -32,6 +32,7 @@ public class BurpExtender extends PassiveScan {
     public static final String EXTENSION_NAME = "Software Version Checks";
 
     protected RuleTableComponent rulesTable;
+	protected ConsolidateComponent consolidate;
     protected BurpSuiteTab mTab;
 	
 	protected Map<String,Set<String>> versions = new HashMap<>();
@@ -44,18 +45,16 @@ public class BurpExtender extends PassiveScan {
         //set the settings namespace
         settingsNamespace = "SVC_";
 
-        rulesTable = new RuleTableComponent(this, callbacks);
-
         mTab = new BurpSuiteTab(TAB_NAME, callbacks);
+
+		rulesTable = new RuleTableComponent(this, callbacks);
         mTab.addComponent(rulesTable);
+		
+		consolidate = new ConsolidateComponent(callbacks);
+		consolidate.setDefault(true);
+		mTab.addComponent(consolidate);
     }
 
-//    ::TODO:: Add so that settings can save on exit
-//    @Override
-//    public void extensionUnloaded() {
-//        mTab.saveSettings();
-//    }
-	
 	/**
 	 * Overridden to better consolidate duplicates
 	 * 
@@ -65,43 +64,48 @@ public class BurpExtender extends PassiveScan {
 	 */
 	@Override
 	protected List<IScanIssue> processIssues(List<ScannerMatch> matches, IHttpRequestResponse baseRequestResponse) {
-		List<IScanIssue> issues = new ArrayList<>();
-		if (!matches.isEmpty()) {
-			//get the domain
-			URL url = helpers.analyzeRequest(baseRequestResponse).getUrl();
-			String domain = url.getHost();
-			callbacks.printOutput("Processing issues for: " + domain);
-			
-			//get the existing matches for this domain
-			Set<String> domainMatches = versions.get(domain);
-			if (domainMatches == null) {
-				domainMatches = new HashSet<String>();
-				versions.put(domain, domainMatches);
-			}
-			boolean foundUnique = false;
-			
-			Collections.sort(matches); //matches must be in order
-			//get the offsets of scanner matches
-			List<int[]> startStop = new ArrayList<>(1);
-			for (ScannerMatch match : matches) {
-				callbacks.printOutput("Processing match: " + match);
-				callbacks.printOutput("    start: " + match.getStart() + " end: " + match.getEnd() + " full match: " + match.getFullMatch() + " group: " + match.getMatchGroup());
-				
-				//add a marker for code highlighting
-				startStop.add(new int[]{match.getStart(), match.getEnd()});
-				
-				//have we seen this match before? 
-				if (!domainMatches.contains(match.getFullMatch())) { 
-					foundUnique = true;
-					callbacks.printOutput("NEW MATCH!");
+		if (consolidate.isConsolidated()) {
+			List<IScanIssue> issues = new ArrayList<>();
+			if (!matches.isEmpty()) {
+				//get the domain
+				URL url = helpers.analyzeRequest(baseRequestResponse).getUrl();
+				String domain = url.getHost();
+				callbacks.printOutput("Processing issues for: " + domain);
+
+				//get the existing matches for this domain
+				Set<String> domainMatches = versions.get(domain);
+				if (domainMatches == null) {
+					domainMatches = new HashSet<String>();
+					versions.put(domain, domainMatches);
 				}
-				domainMatches.add(match.getFullMatch());
+				boolean foundUnique = false;
+
+				Collections.sort(matches); //matches must be in order
+				//get the offsets of scanner matches
+				List<int[]> startStop = new ArrayList<>(1);
+				for (ScannerMatch match : matches) {
+					callbacks.printOutput("Processing match: " + match);
+					callbacks.printOutput("    start: " + match.getStart() + " end: " + match.getEnd() + " full match: " + match.getFullMatch() + " group: " + match.getMatchGroup());
+
+					//add a marker for code highlighting
+					startStop.add(new int[]{match.getStart(), match.getEnd()});
+
+					//have we seen this match before? 
+					if (!domainMatches.contains(match.getFullMatch())) { 
+						foundUnique = true;
+						callbacks.printOutput("NEW MATCH!");
+					}
+					domainMatches.add(match.getFullMatch());
+				}
+				if (foundUnique) issues.add(getScanIssue(baseRequestResponse, matches, startStop));
+				callbacks.printOutput("issues: " + issues.size());
 			}
-			if (foundUnique) issues.add(getScanIssue(baseRequestResponse, matches, startStop));
-			callbacks.printOutput("issues: " + issues.size());
+					
+			return issues;
+
+		} else {
+			return super.processIssues(matches, baseRequestResponse);
 		}
-		
-		return issues;
 	}
 
     protected String getIssueName() {
