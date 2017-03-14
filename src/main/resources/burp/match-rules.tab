@@ -33,6 +33,7 @@ jquery[/-]([\d-.]+)	1	jQuery	Information	Certain	2
 jQuery v([\d.]+)	1	jQuery	Information	Certain
 Liferay Portal Enterprise Edition ([\d.]+)	1	Liferay Portal	Low	Certain
 lighttpd/([\d.]+)	1	lighttpd	Low	Certain
+Linux ([a-z0-9\.\-_]+)	1	Linux	Low	Certain
 LiteSpeed/([\d.]+)	1	OpenCms	Low	Certain
 Microsoft-HTTPAPI/([\d.]+)	1	Microsoft HTTPAPI	Low	Certain
 Microsoft-IIS/([\d.]+)	1	Microsoft IIS	Low	Certain
@@ -50,6 +51,7 @@ OpenCms/([\d.]+)	1	OpenCms	Low	Certain
 Omniture DC/([\d.]+)	1	Omniture DC (Adobe)	Low	Certain
 OpenSSL/([\d.]+)	1	OpenSSL	Low	Certain
 OnlineOpinion\s+v([\d.]+)	1	OpinionLab OnlineOpinion	Information	Certain
+Oracle Corporation ([\d\._])+	1	Oracle Java	Low	Certain
 Oracle-iPlanet-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
 Oracle-Application-Server-([\d.]+.*)	1	Oracle-Application-Server	Low	Certain
 Oracle OpenSSO ([\d.]+.*)	1	Oracle OpenSSO	Low	Certain
@@ -68,6 +70,7 @@ Tomcat-([\d.]+)	1	JBoss (Tomcat)	Low	Certain
 TornadoServer/([\d.]+)	1	Tornado Server	Low	Certain
 Underscore\.js ([\d.]+)	1	Underscore.js	Information	Certain
 var APPLICATION_FULL_VERSION = '([\d.]+)';	1	Microsoft CRM	Information	Certain
+"version":"([a-z0-9\.\+]+)"	1	Generic	Low	Firm
 WEBrick/([\d.]+)	1	WEBrick	Low	Certain
 WebSockify Python/([\d.]+)	1	Python (Websockify)	Low	Certain
 WebSphere Application Server/([\d.]+)	1	IBM WebSphere Application Server	Low	Certain

@@ -37,6 +37,7 @@ focusable.js, form-reset-mixin.js, jquery-1-7.js, keycode.js,
 jQuery v3.0.2.100
 Liferay Portal Enterprise Edition 3.0.2.100
 lighttpd/3.0.2.100
+"lb_status":"alive","timezone":"Etc/UTC","operating_system":"Linux 3.10.0-327.18.2.el7.x86_64","is_processing":true}
 LiteSpeed/3.0.2.100
 Microsoft-HTTPAPI/3.0.2.100
 Microsoft-IIS/3.0.2.100
@@ -54,6 +55,7 @@ OpenCms/3.0.2.100
 Omniture DC/3.0.2.100
 OpenSSL/3.0.2.100
 OnlineOpinion v5.9.0
+Oracle Corporation 1.8.0_101
 Oracle-iPlanet-Web-Server/7.0.22
 Server: Oracle-Application-Server-11g/Oracle Web-Cache-11g/11.1.1.1.0 (N;ecid=104327518477,0)
 Oracle OpenSSO 1.1.11
@@ -76,6 +78,7 @@ Tomcat-3.0.2.100
 TornadoServer/3.0.2.100
 Underscore.js 3.0.2.100
 var APPLICATION_FULL_VERSION = '1.2.3.4';
+"version":"2.2.2+691b4b7"
 WEBrick/3.0.2.100
 Server: WebSockify Python/1.2.3
 WebSphere Application Server/3.0.2.100
