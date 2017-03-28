@@ -17,6 +17,7 @@ Handlebars\.VERSION\s*=\s*["']([\w.]+)["']	1	Handlebars.js	Information	Certain	2
 IBM_HTTP_Server/([\d.]+)	1	IBM HTTP Server	Low	Certain
 IWeb/([\d.]+)	1	360vision CCTV Web Server	Low	Certain
 JBoss-([\d.]+(?:GA)?)	1	JBoss	Low	Certain
+JBoss-EAP/([\d.]+)	1	JBoss Enterprise Application Platform	Low	Certain		https://developers.redhat.com/products/eap/overview/
 JBoss_([\d_]+)	1	JBoss	Low	Certain
 JBPAPP_([\d_]+(?:GA)?)	1	JBoss	Low	Certain
 JBossWeb/([\d.]+(?:GA)?)	1	JBoss Webserver	Low	Certain
@@ -69,11 +70,13 @@ Sun-Java-System-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
 Tomcat-([\d.]+)	1	JBoss (Tomcat)	Low	Certain
 TornadoServer/([\d.]+)	1	Tornado Server	Low	Certain
 Underscore\.js ([\d.]+)	1	Underscore.js	Information	Certain
+X-Powered-By: Undertow/([\d.]+)	1	Undertow	Low	Certain		http://undertow.io/
 var APPLICATION_FULL_VERSION = '([\d.]+)';	1	Microsoft CRM	Information	Certain
-"version":"([a-z0-9\.\+]+)"	1	Generic	Low	Firm
+"version":"([a-z0-9\.\+]+)"	1	Generic	Information	Firm
 WEBrick/([\d.]+)	1	WEBrick	Low	Certain
 WebSockify Python/([\d.]+)	1	Python (Websockify)	Low	Certain
 WebSphere Application Server/([\d.]+)	1	IBM WebSphere Application Server	Low	Certain
+Server: WildFly/([\d.]+)	1	WildFly	Low	Certain		http://wildfly.org/
 X-AspNet-Version: ([\d.]+)	1	ASP.Net	Low	Certain
 X-AspNetMvc-Version: ([\d.]+)	1	ASP.Net MVC Framework	Low	Certain
 X-Cocoon-Version: ([\d.]+)	1	Apache Cocoon	Low	Certain

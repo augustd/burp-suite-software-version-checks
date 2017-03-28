@@ -19,6 +19,7 @@ Handlebars.VERSION="1.0.beta.6";
 IBM_HTTP_Server/3.0.2.100
 IWeb/3.0.2.100
 JBoss-2.0.0.GA
+JBoss-EAP/7
 (build: CVSTag=JBoss_4_0_3 date=200510042324)
 JBossWeb/2.0.0.GA_CP16_JBPAPP_10368 - Error report
 JBoss Web/2.1.12.GA-patch-03
@@ -77,11 +78,13 @@ Sun-Java-System-Web-Server/3.0.2.100
 Tomcat-3.0.2.100
 TornadoServer/3.0.2.100
 Underscore.js 3.0.2.100
+X-Powered-By: Undertow/1  
 var APPLICATION_FULL_VERSION = '1.2.3.4';
 "version":"2.2.2+691b4b7"
 WEBrick/3.0.2.100
 Server: WebSockify Python/1.2.3
 WebSphere Application Server/3.0.2.100
+Server: WildFly/9  
 X-AspNet-Version: 4.0.30319
 X-AspNetMvc-Version: 3.0.2.100
 X-Cocoon-Version: 8.8.7

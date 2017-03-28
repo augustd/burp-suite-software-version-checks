@@ -3,6 +3,7 @@ package burp;
 import com.codemagi.burp.MatchRule;
 import com.codemagi.burp.ScanIssueConfidence;
 import com.codemagi.burp.ScanIssueSeverity;
+import com.codemagi.burp.Utils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -117,7 +118,8 @@ public class RegexTest {
                     );
                     
                     if (values.length > 5) {
-                        rule.setExpectedMatches(new Integer(values[5]));
+						String expectedMatches = values[5];
+                        if (!Utils.isEmpty(expectedMatches)) rule.setExpectedMatches(new Integer(expectedMatches));
                     }
                     
                     matchRules.add(rule);
