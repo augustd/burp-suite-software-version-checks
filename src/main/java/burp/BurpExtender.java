@@ -107,6 +107,15 @@ public class BurpExtender extends PassiveScan {
 			return super.processIssues(matches, baseRequestResponse);
 		}
 	}
+	
+	protected void clearCache() {
+		versions.clear();
+	}
+	
+	protected void clearCache(String domain) {
+		versions.remove(domain);
+	}
+
 
     protected String getIssueName() {
         return "Software Version Numbers Revealed";
