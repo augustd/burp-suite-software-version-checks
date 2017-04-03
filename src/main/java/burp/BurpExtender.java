@@ -6,7 +6,16 @@ import com.codemagi.burp.ScanIssueConfidence;
 import com.codemagi.burp.ScanIssueSeverity;
 import com.codemagi.burp.ScannerMatch;
 import com.monikamorrow.burp.BurpSuiteTab;
+import java.awt.FlowLayout;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import javax.swing.BoxLayout;
 
 /**
  * Burp Extender to find instances of applications revealing software version numbers
@@ -25,7 +34,11 @@ public class BurpExtender extends PassiveScan {
     public static final String EXTENSION_NAME = "Software Version Checks";
 
     protected RuleTableComponent rulesTable;
+	protected VersionsComponent versionsComponent;
+	protected ConsolidateComponent consolidate;
     protected BurpSuiteTab mTab;
+	
+	protected Map<String,Set<String>> versions = new HashMap<>();
 
     @Override
     protected void initPassiveScan() {
@@ -35,17 +48,81 @@ public class BurpExtender extends PassiveScan {
         //set the settings namespace
         settingsNamespace = "SVC_";
 
-        rulesTable = new RuleTableComponent(this, callbacks);
-
         mTab = new BurpSuiteTab(TAB_NAME, callbacks);
+
+		rulesTable = new RuleTableComponent(this, callbacks);
         mTab.addComponent(rulesTable);
+		
+		versionsComponent = new VersionsComponent(callbacks);
+		mTab.addComponent(versionsComponent);
+		
+		consolidate = new ConsolidateComponent(callbacks);
+		consolidate.setDefault(true);
+		mTab.addComponent(consolidate);
     }
 
-//    ::TODO:: Add so that settings can save on exit
-//    @Override
-//    public void extensionUnloaded() {
-//        mTab.saveSettings();
-//    }
+	/**
+	 * Overridden to better consolidate duplicates
+	 * 
+	 * @param matches
+	 * @param baseRequestResponse
+	 * @return The consolidated list of issues found
+	 */
+	@Override
+	protected List<IScanIssue> processIssues(List<ScannerMatch> matches, IHttpRequestResponse baseRequestResponse) {
+		if (consolidate.isConsolidated()) {
+			List<IScanIssue> issues = new ArrayList<>();
+			if (!matches.isEmpty()) {
+				//get the domain
+				URL url = helpers.analyzeRequest(baseRequestResponse).getUrl();
+				String domain = url.getHost();
+				callbacks.printOutput("Processing issues for: " + domain);
+
+				//get the existing matches for this domain
+				Set<String> domainMatches = versions.get(domain);
+				if (domainMatches == null) {
+					domainMatches = new HashSet<String>();
+					versions.put(domain, domainMatches);
+					versionsComponent.addDomain(domain);
+				}
+				boolean foundUnique = false;
+
+				Collections.sort(matches); //matches must be in order
+				//get the offsets of scanner matches
+				List<int[]> startStop = new ArrayList<>(1);
+				for (ScannerMatch match : matches) {
+					callbacks.printOutput("Processing match: " + match);
+					callbacks.printOutput("    start: " + match.getStart() + " end: " + match.getEnd() + " full match: " + match.getFullMatch() + " group: " + match.getMatchGroup());
+
+					//add a marker for code highlighting
+					startStop.add(new int[]{match.getStart(), match.getEnd()});
+
+					//have we seen this match before? 
+					if (!domainMatches.contains(match.getFullMatch())) { 
+						foundUnique = true;
+						callbacks.printOutput("NEW MATCH!");
+					}
+					domainMatches.add(match.getFullMatch());
+				}
+				if (foundUnique) issues.add(getScanIssue(baseRequestResponse, matches, startStop));
+				callbacks.printOutput("issues: " + issues.size());
+			}
+					
+			return issues;
+
+		} else {
+			return super.processIssues(matches, baseRequestResponse);
+		}
+	}
+	
+	protected void clearCache() {
+		versions.clear();
+	}
+	
+	protected void clearCache(String domain) {
+		versions.remove(domain);
+	}
+
 
     protected String getIssueName() {
         return "Software Version Numbers Revealed";
@@ -61,7 +138,7 @@ public class BurpExtender extends PassiveScan {
 	    //add a description
 	    description.append("<li>");
 
-	    description.append(match.getType()).append(": ").append(match.getMatch());
+	    description.append(match.getType()).append(": ").append(match.getMatchGroup());
 	}
 
 	return description.toString();
