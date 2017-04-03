@@ -94,8 +94,6 @@ public class ConsolidateComponent extends javax.swing.JPanel {
         jCheckBoxConsolidate = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        buttonClearCache = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(229, 137, 0));
@@ -114,15 +112,6 @@ public class ConsolidateComponent extends javax.swing.JPanel {
 
         jLabel4.setText("Select the checkbox to consolidate duplicate results from the same domain:");
 
-        buttonClearCache.setText("Clear cache");
-        buttonClearCache.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonClearCacheActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("To reset the list of found versions you can clear the cache:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,9 +122,7 @@ public class ConsolidateComponent extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(jCheckBoxConsolidate)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(buttonClearCache))
+                    .addComponent(jLabel4))
                 .addContainerGap(128, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -147,10 +134,6 @@ public class ConsolidateComponent extends javax.swing.JPanel {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckBoxConsolidate)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonClearCache)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3))
         );
@@ -162,18 +145,11 @@ public class ConsolidateComponent extends javax.swing.JPanel {
 		saveSettings();
     }//GEN-LAST:event_jCheckBoxConsolidateActionPerformed
 
-    private void buttonClearCacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClearCacheActionPerformed
-        BurpExtender instance = (BurpExtender)BurpExtender.getInstance();
-		instance.clearCache();
-    }//GEN-LAST:event_buttonClearCacheActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonClearCache;
     private javax.swing.JCheckBox jCheckBoxConsolidate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 
 }
