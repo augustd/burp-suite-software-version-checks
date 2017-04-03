@@ -1,8 +1,8 @@
 Uuid: ae62baff8fa24150991bad5eaf6d4d38
 ExtensionType: 1
 Name: Software Version Reporter
-ScreenVersion: 1.5
-SerialVersion: 6
+ScreenVersion: 2.0.0
+SerialVersion: 7
 MinPlatformVersion: 0
 ProOnly: True
 Author: August Detlefsen
