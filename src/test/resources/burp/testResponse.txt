@@ -55,7 +55,7 @@ nginx/3.0.2.100
 nweb/3.0.2.100
 OpenCms/3.0.2.100
 Omniture DC/3.0.2.100
-OpenSSL/3.0.2.100
+OpenSSL/1.0.1e-fips
 OnlineOpinion v5.9.0
 Oracle Corporation 1.8.0_101
 Oracle-iPlanet-Web-Server/7.0.22
