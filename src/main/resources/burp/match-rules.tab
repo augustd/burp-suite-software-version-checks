@@ -51,7 +51,7 @@ nginx/([\d.]+)	1	nginx	Low	Certain
 nweb/([\d.]+)	1	IBM-NWeb	Low	Certain
 OpenCms/([\d.]+)	1	OpenCms	Low	Certain
 Omniture DC/([\d.]+)	1	Omniture DC (Adobe)	Low	Certain
-OpenSSL/([\d.]+)	1	OpenSSL	Low	Certain
+OpenSSL/([a-z\d.]+(-fips)?)	1	OpenSSL	Low	Certain
 OnlineOpinion\s+v([\d.]+)	1	OpinionLab OnlineOpinion	Information	Certain
 Oracle Corporation ([\d\._])+	1	Oracle Java	Low	Certain
 Oracle-iPlanet-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
