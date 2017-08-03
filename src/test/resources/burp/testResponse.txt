@@ -5,6 +5,7 @@ Alterian-CME/3.0.2.100
 "osVersion" : "4.1.13-19.31.amzn1.x86_64"
 Server: Apache/2.2.4 (Unix) mod_perl/2.0.3 Perl/v5.8.8
 Apache-Coyote/1.1
+<em>Powered by <a href="http://subversion.apache.org/">Apache Subversion</a> version 1.7.14 (r1542130).</em>
 Apache Tomcat/6.0.24 - Error report
 ARR/3.0.2.100
 ASP.NET Version:3.0.2.100
