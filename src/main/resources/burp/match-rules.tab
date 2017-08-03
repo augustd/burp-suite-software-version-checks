@@ -5,6 +5,7 @@ Alterian-CME/([\d.]+)	1	Alterian-CME	Low	Certain
 ([-\d.]+)amzn1.x86_64	1	Amazon Linux	Low	Certain
 Apache/([\d.]+(?: \([ \w]+\))?)	1	Apache	Low	Certain
 Apache-Coyote/([\d.]+)	1	Apache Coyote (Tomcat)	Low	Certain
+>Apache Subversion</a>\s+version\s+([\d.]+(?:\s*\(r\d+\))?)	1	Apache Subversion	Low	Certain
 Apache Tomcat/([\d.]+)	1	Apache Tomcat	Low	Certain
 ARR/([\d.]+)	1	IIS Application Request Routing	Low	Certain
 ASP\.NET Version:([\d.]+)	1	ASP.Net	Low	Certain
