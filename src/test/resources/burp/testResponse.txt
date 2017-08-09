@@ -65,6 +65,7 @@ Orion/3.0.2.100
 Server: NSC/0.6.4 (JVM)
 Perl/v3.0.2.100
 PHP/3.0.2.100
+X-Powered-By: PHP/5.5.9-1ubuntu4.9
 X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.13
 var Prototype = {
 
