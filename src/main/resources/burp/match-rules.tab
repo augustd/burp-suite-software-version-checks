@@ -60,7 +60,7 @@ Oracle OpenSSO ([\d.]+.*)	1	Oracle OpenSSO	Low	Certain
 Orion/([\d.]+)	1	Orion	Low	Certain
 NSC/([\d.]+) \(JVM\)	1	Nexpose	Low	Certain
 Perl/v([\d.]+)	1	Perl	Low	Certain
-PHP/([\d.]+(?:[-\w\d\.]+\)?)	1	PHP	Low	Certain	2
+PHP/([\d.]+(?:[-\w\d\.]+)?)	1	PHP	Low	Certain	2
 Phusion Passenger(?: \([a-zA-Z_/]+\))? ([\d.]+)	1	Phusion Passenger	Low	Certain
 Prototype\s*=\s*\{\s*Version:\s*["']([\d.]+)["']	1	Prototype	Information	Certain
 Ruby/([\d.]+(?:/\d{4}-\d{2}-\d{2})?)	1	Ruby	Low	Certain
