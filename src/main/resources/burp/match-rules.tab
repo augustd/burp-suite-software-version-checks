@@ -43,6 +43,7 @@ Microsoft-IIS/([\d.]+)	1	Microsoft IIS	Low	Certain
 Microsoft \.NET Framework Version:([\d.]+)	1	Microsoft .Net Framework	Low	Certain
 Microsoft \.NET Framework ([\d.]+)	1	Microsoft .Net Framework	Low	Certain
 MicrosoftSharePointTeamServices: ([\d.]+)	1	Microsoft SharePoint	Low	Certain
+mod_apreq\d-([\d./]+)	1	Apache HTTP Request Library	Low	Certain
 mod_jk/([\d.]+)	1	mod_jk	Low	Certain
 mod_ssl/([\d.]+)	1	mod_ssl	Low	Certain
 mod_perl/([\d.]+)	1	mod_perl	Low	Certain
@@ -52,7 +53,7 @@ nginx/([\d.]+)	1	nginx	Low	Certain
 nweb/([\d.]+)	1	IBM-NWeb	Low	Certain
 OpenCms/([\d.]+)	1	OpenCms	Low	Certain
 Omniture DC/([\d.]+)	1	Omniture DC (Adobe)	Low	Certain
-OpenSSL/([a-z\d.]+(-fips)?)	1	OpenSSL	Low	Certain
+OpenSSL/([a-z\d.]+(-fips|-freebsd)?)	1	OpenSSL	Low	Certain	2
 OnlineOpinion\s+v([\d.]+)	1	OpinionLab OnlineOpinion	Information	Certain
 Oracle Corporation ([\d\._])+	1	Oracle Java	Low	Certain
 Oracle-iPlanet-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
@@ -67,6 +68,7 @@ Prototype\s*=\s*\{\s*Version:\s*["']([\d.]+)["']	1	Prototype	Information	Certain
 Ruby/([\d.]+(?:/\d{4}-\d{2}-\d{2})?)	1	Ruby	Low	Certain
 Servlet[ /]([\d.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain
 Sizzle (?:CSS Selector Engine[- ]*)?v([\d.]+(?:-\w+)?)	2	Sizzle CSS Selector Engine	Information	Certain	3
+SOAP::Lite/Perl/([\d.]+)	1	SOAP::Lite	Low	Certain
 spray-can/([\d.]+)	1	Spray	Low	Certain
 Sun-Java-System-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
 Tomcat-([\d.]+)	1	JBoss (Tomcat)	Low	Certain
