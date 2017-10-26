@@ -3,6 +3,7 @@ accounting.js v3.0.2.100
 Server: akka-http/2.4.9
 Alterian-CME/3.0.2.100
 "osVersion" : "4.1.13-19.31.amzn1.x86_64"
+Server: AOLserver/4.5.1
 Server: Apache/2.2.4 (Unix) mod_perl/2.0.3 Perl/v5.8.8
 Apache-Coyote/1.1
 <em>Powered by <a href="http://subversion.apache.org/">Apache Subversion</a> version 1.7.14 (r1542130).</em>
@@ -80,6 +81,7 @@ Servlet 3.0.2.100
 /*! Sizzle v2.3.4-pre | (c) jQuery Foundation, Inc. | jquery.org/license */
 SOAPServer: SOAP::Lite/Perl/1.20
 Server: spray-can/1.3.3
+Via: 1.0 localhost (squid/3.1.20)
 Sun-Java-System-Web-Server/3.0.2.100
 Tomcat-3.0.2.100
 TornadoServer/3.0.2.100

@@ -3,6 +3,7 @@ accounting\.js v([\d.]+)	1	accounting.js	Information	Certain
 akka-http/([\d.]+)	1	Akka HTTP	Low	Certain
 Alterian-CME/([\d.]+)	1	Alterian-CME	Low	Certain
 ([-\d.]+)amzn1.x86_64	1	Amazon Linux	Low	Certain
+AOLserver/([\d.]+)	1	AOL web Server	Low	Certain
 Apache/([\d.]+(?: \([ \w]+\))?)	1	Apache	Low	Certain
 Apache-Coyote/([\d.]+)	1	Apache Coyote (Tomcat)	Low	Certain
 >Apache Subversion</a>\s+version\s+([\d.]+(?:\s*\(r\d+\))?)	1	Apache Subversion	Low	Certain
@@ -70,6 +71,7 @@ Servlet[ /]([\d.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain
 Sizzle (?:CSS Selector Engine[- ]*)?v([\d.]+(?:-\w+)?)	2	Sizzle CSS Selector Engine	Information	Certain	3
 SOAP::Lite/Perl/([\d.]+)	1	SOAP::Lite	Low	Certain
 spray-can/([\d.]+)	1	Spray	Low	Certain
+squid/([\d.]+)	1	Squid Cache	Low	Certain
 Sun-Java-System-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
 Tomcat-([\d.]+)	1	JBoss (Tomcat)	Low	Certain
 TornadoServer/([\d.]+)	1	Tornado Server	Low	Certain
