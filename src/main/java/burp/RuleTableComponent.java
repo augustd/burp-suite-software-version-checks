@@ -26,10 +26,10 @@ public class RuleTableComponent extends javax.swing.JPanel {
 
     public static final String DEFAULT_URL = "https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/main/resources/burp/match-rules.tab";
     public static final String SETTING_URL = "SETTING_URL";
-    
+
     //the OLD, DEPRECATED settings URL 
     public static final String OLD_DEFAULT_URL = "https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/burp/match-rules.tab";
-    
+
     /**
      * Creates new form BurpSuiteTab
      *
@@ -38,21 +38,21 @@ public class RuleTableComponent extends javax.swing.JPanel {
      */
     public RuleTableComponent(final PassiveScan scan, IBurpExtenderCallbacks callbacks) {
 
-	mCallbacks = callbacks;
-	this.scan = scan;
+        mCallbacks = callbacks;
+        this.scan = scan;
 
-	initComponents();
+        initComponents();
 
-	mCallbacks.customizeUiComponent(rules);
-        
+        mCallbacks.customizeUiComponent(rules);
+
         //restore saved settings 
         restoreSettings();
-        
-	//load match rules from GitHub
-        loadMatchRules(urlTextField.getText()); 
+
+        //load match rules from GitHub
+        loadMatchRules(urlTextField.getText());
 
         //add a listener for changes to the table model
-        final DefaultTableModel model = (DefaultTableModel)rules.getModel();
+        final DefaultTableModel model = (DefaultTableModel) rules.getModel();
         model.addTableModelListener(new TableModelListener() {
             public void tableChanged(TableModelEvent e) {
                 if (TableModelEvent.UPDATE == e.getType()) {
@@ -61,29 +61,29 @@ public class RuleTableComponent extends javax.swing.JPanel {
                     int column = e.getColumn();
                     mCallbacks.printOutput("row: " + row + " column: " + column + " value: " + model.getValueAt(row, column));
                     MatchRule rule = scan.getMatchRule(row);
-                    mCallbacks.printOutput("rule 1: " + rule); 
+                    mCallbacks.printOutput("rule 1: " + rule);
                     if (rule == null) {
                         rule = new MatchRule(Pattern.compile("."), 1, "", ScanIssueSeverity.LOW, ScanIssueConfidence.CERTAIN);
                         scan.addMatchRule(rule);
                     }
-                    mCallbacks.printOutput("rule 2: " + rule); 
-                    
-                    switch (column) { 
-                        case 0: 
-                            mCallbacks.printOutput("new pattern: " + (String)model.getValueAt(row, column));
-                            rule.setPattern(Pattern.compile((String)model.getValueAt(row, column)));
+                    mCallbacks.printOutput("rule 2: " + rule);
+
+                    switch (column) {
+                        case 0:
+                            mCallbacks.printOutput("new pattern: " + (String) model.getValueAt(row, column));
+                            rule.setPattern(Pattern.compile((String) model.getValueAt(row, column)));
                             break;
                         case 1:
-                            rule.setMatchGroup((Integer)model.getValueAt(row, column));
+                            rule.setMatchGroup((Integer) model.getValueAt(row, column));
                             break;
-                       case 2:
-                            rule.setType((String)model.getValueAt(row, column));
+                        case 2:
+                            rule.setType((String) model.getValueAt(row, column));
                             break;
                         case 3:
-                            rule.setSeverity(ScanIssueSeverity.fromName((String)model.getValueAt(row, column)));
+                            rule.setSeverity(ScanIssueSeverity.fromName((String) model.getValueAt(row, column)));
                             break;
                         case 4:
-                            rule.setConfidence(ScanIssueConfidence.fromName((String)model.getValueAt(row, column)));
+                            rule.setConfidence(ScanIssueConfidence.fromName((String) model.getValueAt(row, column)));
                             break;
                     }
                 }
@@ -95,32 +95,32 @@ public class RuleTableComponent extends javax.swing.JPanel {
      * Load match rules from a file
      */
     private boolean loadMatchRules(String url) {
-	//load match rules from file
-	try {
-	    
-	    DefaultTableModel model = (DefaultTableModel)rules.getModel();
+        //load match rules from file
+        try {
 
-	    //read match rules from the stream
-	    InputStream is = new URL(url).openStream();
-	    BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-	    
-	    String str;
-	    while ((str = reader.readLine()) != null) {
-		mCallbacks.printOutput("str: " + str);
-		if (str.trim().length() == 0) {
-		    continue;
-		}
+            DefaultTableModel model = (DefaultTableModel) rules.getModel();
 
-		String[] values = str.split("\\t");
-		model.addRow(values);
+            //read match rules from the stream
+            InputStream is = new URL(url).openStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+
+            String str;
+            while ((str = reader.readLine()) != null) {
+                mCallbacks.printOutput("str: " + str);
+                if (str.trim().length() == 0) {
+                    continue;
+                }
+
+                String[] values = str.split("\\t");
+                model.addRow(values);
 
                 try {
                     Pattern pattern = Pattern.compile(values[0]);
 
                     scan.addMatchRule(new MatchRule(
-                            pattern, 
-                            new Integer(values[1]), 
-                            values[2], 
+                            pattern,
+                            new Integer(values[1]),
+                            values[2],
                             ScanIssueSeverity.fromName(values[3]),
                             ScanIssueConfidence.fromName(values[4]))
                     );
@@ -128,58 +128,60 @@ public class RuleTableComponent extends javax.swing.JPanel {
                     mCallbacks.printError("Unable to compile pattern: " + values[0] + " for: " + values[2]);
                     scan.printStackTrace(pse);
                 }
-	    }
-            
+            }
+
             return true;
 
-	} catch (IOException e) {
-	    OutputStream error = mCallbacks.getStderr();
-	    e.printStackTrace(new PrintStream(error));
-	} catch (NumberFormatException e) {
-	    OutputStream error = mCallbacks.getStderr();
-	    e.printStackTrace(new PrintStream(error));
-	}
-        
+        } catch (IOException e) {
+            OutputStream error = mCallbacks.getStderr();
+            e.printStackTrace(new PrintStream(error));
+        } catch (NumberFormatException e) {
+            OutputStream error = mCallbacks.getStderr();
+            e.printStackTrace(new PrintStream(error));
+        }
+
         return false;
     }
-    
+
     /**
      * Save all configured settings
      */
     public void saveSettings() {
         mCallbacks.printOutput("Saving settings...");
-        
+
         // Clear settings
         mCallbacks.saveExtensionSetting(scan.getSettingsNamespace() + SETTING_URL, null);
-        
+
         // Store settings
         mCallbacks.printOutput("Saving URL: " + urlTextField.getText());
         mCallbacks.saveExtensionSetting(scan.getSettingsNamespace() + SETTING_URL, urlTextField.getText());
     }
-    
+
     /**
      * Restores any found saved settings
      */
     public void restoreSettings() {
         mCallbacks.printOutput("Restoring settings...");
-        
+
         String settingUrl = mCallbacks.loadExtensionSetting(scan.getSettingsNamespace() + SETTING_URL);
         mCallbacks.printOutput("Loaded URL: " + settingUrl);
-        
+
         //check for old deprecated settings URL
         if (OLD_DEFAULT_URL.equals(settingUrl)) {
             //replace with new URL
             settingUrl = DEFAULT_URL;
         }
-        
+
         if (settingUrl != null) {
             urlTextField.setText(settingUrl);
             //extender.setFormUrl(settingUrl);
         }
     }
-    
+
     /**
-     * This method is called from within the constructor to initialize the form. WARNING: Do NOT modify this code. The content of this method is always regenerated by the Form Editor.
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -315,25 +317,27 @@ public class RuleTableComponent extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadBtnActionPerformed
-	//read value from text field
-	String url = urlTextField.getText();
-	
-	//issue request to URL
-	boolean success = loadMatchRules(url);
-        if (success) saveSettings();
+        //read value from text field
+        String url = urlTextField.getText();
+
+        //issue request to URL
+        boolean success = loadMatchRules(url);
+        if (success) {
+            saveSettings();
+        }
     }//GEN-LAST:event_loadBtnActionPerformed
 
     private void urlTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_urlTextFieldActionPerformed
-	// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_urlTextFieldActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        DefaultTableModel model = (DefaultTableModel)rules.getModel();
+        DefaultTableModel model = (DefaultTableModel) rules.getModel();
         model.addRow(new Object[]{"", 1, "", "Low", "Certain"});
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
-        DefaultTableModel model = (DefaultTableModel)rules.getModel();
+        DefaultTableModel model = (DefaultTableModel) rules.getModel();
         int[] rows = rules.getSelectedRows();
         for (int i = 0; i < rows.length; i++) {
             model.removeRow(rows[i] - i);
@@ -345,14 +349,14 @@ public class RuleTableComponent extends javax.swing.JPanel {
         //clear the existing values from the table    
         DefaultTableModel model = (DefaultTableModel) rules.getModel();
         model.setRowCount(0);
-        
+
         //remove existing match rules from the scan
         scan.clearMatchRules();
 
         //load the defaults
         urlTextField.setText(DEFAULT_URL);
         loadMatchRules(DEFAULT_URL);
-        
+
         saveSettings();
     }//GEN-LAST:event_resetButtonActionPerformed
 
