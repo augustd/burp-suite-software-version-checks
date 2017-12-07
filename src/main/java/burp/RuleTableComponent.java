@@ -27,6 +27,9 @@ public class RuleTableComponent extends javax.swing.JPanel {
     public static final String DEFAULT_URL = "https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/main/resources/burp/match-rules.tab";
     public static final String SETTING_URL = "SETTING_URL";
     
+    //the OLD, DEPRECATED settings URL 
+    public static final String OLD_DEFAULT_URL = "https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/burp/match-rules.tab";
+    
     /**
      * Creates new form BurpSuiteTab
      *
@@ -162,6 +165,13 @@ public class RuleTableComponent extends javax.swing.JPanel {
         
         String settingUrl = mCallbacks.loadExtensionSetting(scan.getSettingsNamespace() + SETTING_URL);
         mCallbacks.printOutput("Loaded URL: " + settingUrl);
+        
+        //check for old deprecated settings URL
+        if (OLD_DEFAULT_URL.equals(settingUrl)) {
+            //replace with new URL
+            settingUrl = DEFAULT_URL;
+        }
+        
         if (settingUrl != null) {
             urlTextField.setText(settingUrl);
             //extender.setFormUrl(settingUrl);
@@ -215,7 +225,7 @@ public class RuleTableComponent extends javax.swing.JPanel {
 
         jLabel6.setText("Match rules use regular epressions to flag software version numbers in server responses");
 
-        urlTextField.setText("https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/burp/match-rules.tab");
+        urlTextField.setText(DEFAULT_URL);
         urlTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 urlTextFieldActionPerformed(evt);

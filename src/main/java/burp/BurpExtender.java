@@ -6,7 +6,6 @@ import com.codemagi.burp.ScanIssueConfidence;
 import com.codemagi.burp.ScanIssueSeverity;
 import com.codemagi.burp.ScannerMatch;
 import com.monikamorrow.burp.BurpSuiteTab;
-import java.awt.FlowLayout;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,7 +14,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import javax.swing.BoxLayout;
 
 /**
  * Burp Extender to find instances of applications revealing software version numbers
