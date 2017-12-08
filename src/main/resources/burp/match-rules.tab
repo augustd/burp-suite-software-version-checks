@@ -53,6 +53,7 @@ name:"mustache.js",version:"([\d.]+)"	1	Mustache.js	Information	Certain
 nginx/([\d.]+)	1	nginx	Low	Certain
 nweb/([\d.]+)	1	IBM-NWeb	Low	Certain
 OpenCms/([\d.]+)	1	OpenCms	Low	Certain
+openresty/([\d.]+)	1	OpenResty	Low	Certain
 Omniture DC/([\d.]+)	1	Omniture DC (Adobe)	Low	Certain
 OpenSSL/([a-z\d.]+(-fips|-freebsd)?)	1	OpenSSL	Low	Certain	2
 OnlineOpinion\s+v([\d.]+)	1	OpinionLab OnlineOpinion	Information	Certain

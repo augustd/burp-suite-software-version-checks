@@ -57,6 +57,7 @@ var l={name:"mustache.js",version:"0.7.0",tags:["{{","}}"]}
 nginx/3.0.2.100
 nweb/3.0.2.100
 OpenCms/3.0.2.100
+Server: openresty/1.9.7.4
 Omniture DC/3.0.2.100
 OpenSSL/1.0.1e-fips
 OpenSSL/1.0.1s-freebsd
