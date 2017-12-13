@@ -2,10 +2,12 @@ package burp;
 
 import com.codemagi.burp.PassiveScan;
 import com.codemagi.burp.ScanIssue;
+import com.codemagi.burp.RuleTableComponent;
 import com.codemagi.burp.ScanIssueConfidence;
 import com.codemagi.burp.ScanIssueSeverity;
 import com.codemagi.burp.ScannerMatch;
 import com.monikamorrow.burp.BurpSuiteTab;
+import com.monikamorrow.burp.ToolsScopeComponent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,7 +29,7 @@ import java.util.Set;
  * @author August Detlefsen [augustd at codemagi dot com]
  * @contributor Thomas Dosedel [thom at secureideas dot com] for match rules
  */
-public class BurpExtender extends PassiveScan {
+public class BurpExtender extends PassiveScan implements IHttpListener {
 
     public static final String TAB_NAME = "Versions";
     public static final String EXTENSION_NAME = "Software Version Checks";
@@ -35,6 +37,7 @@ public class BurpExtender extends PassiveScan {
     protected RuleTableComponent rulesTable;
     protected VersionsComponent versionsComponent;
     protected ConsolidateComponent consolidate;
+    protected ToolsScopeComponent toolsScope;
     protected BurpSuiteTab mTab;
 
     protected Map<String, Set<String>> versions = new HashMap<>();
@@ -49,7 +52,7 @@ public class BurpExtender extends PassiveScan {
 
         mTab = new BurpSuiteTab(TAB_NAME, callbacks);
 
-        rulesTable = new RuleTableComponent(this, callbacks);
+        rulesTable = new RuleTableComponent(this, callbacks, "https://raw.githubusercontent.com/augustd/burp-suite-software-version-checks/master/src/main/resources/burp/match-rules.tab", "burp/match-rules.tab");
         mTab.addComponent(rulesTable);
 
         versionsComponent = new VersionsComponent(callbacks);
@@ -58,6 +61,17 @@ public class BurpExtender extends PassiveScan {
         consolidate = new ConsolidateComponent(callbacks);
         consolidate.setDefault(true);
         mTab.addComponent(consolidate);
+
+        toolsScope = new ToolsScopeComponent(callbacks);
+        toolsScope.setEnabledToolConfig(IBurpExtenderCallbacks.TOOL_PROXY, false);
+        toolsScope.setToolDefault(IBurpExtenderCallbacks.TOOL_PROXY, false);
+        toolsScope.setToolDefault(IBurpExtenderCallbacks.TOOL_SCANNER, true);
+        toolsScope.setToolDefault(IBurpExtenderCallbacks.TOOL_REPEATER, true);
+        toolsScope.setToolDefault(IBurpExtenderCallbacks.TOOL_INTRUDER, true);
+        mTab.addComponent(toolsScope);
+
+        //register this extension as an HTTP listener
+        callbacks.registerHttpListener(this);
     }
 
     /**
@@ -80,7 +94,7 @@ public class BurpExtender extends PassiveScan {
                 //get the existing matches for this domain
                 Set<String> domainMatches = versions.get(domain);
                 if (domainMatches == null) {
-                    domainMatches = new HashSet<String>();
+                    domainMatches = new HashSet<>();
                     versions.put(domain, domainMatches);
                     versionsComponent.addDomain(domain);
                 }
@@ -186,6 +200,41 @@ public class BurpExtender extends PassiveScan {
                 getIssueDetail(matches),
                 overallSeverity.getName(),
                 overallConfidence.getName());
+    }
+
+    @Override
+    public void processHttpMessage(int toolFlag, boolean messageIsRequest, IHttpRequestResponse messageInfo) {
+        if (!messageIsRequest && toolsScope.isToolSelected(toolFlag)) {
+            //first get the scan issues
+            List<IScanIssue> issues = runPassiveScanChecks(messageInfo);
+
+            //if we have found issues, consolidate duplicates and add new issues to the Scanner tab
+            if (issues != null && !issues.isEmpty()) {
+                callbacks.printOutput("NEW issues: " + issues.size());
+                //get the request URL prefix
+                URL url = helpers.analyzeRequest(messageInfo).getUrl();
+                String urlPrefix = url.getProtocol() + "://" + url.getHost() + url.getPath();
+                callbacks.printOutput("Consolidating issues for urlPrefix: " + urlPrefix);
+
+                //get existing issues
+                IScanIssue[] existingArray = callbacks.getScanIssues(urlPrefix);
+                Set<IScanIssue> existingIssues = new HashSet<>();
+                for (IScanIssue arrayIssue : existingArray) {
+                    //create instances of ScanIssue class so we can compare them
+                    ScanIssue existing = new ScanIssue(arrayIssue);
+                    //add to HashSet to resolve dupes
+                    existingIssues.add(existing);
+                }
+
+                //iterate through newly found issues
+                for (IScanIssue newIssue : issues) {
+                    if (!existingIssues.contains(newIssue)) {
+                        callbacks.printOutput("Adding NEW scan issue: " + newIssue);
+                        callbacks.addScanIssue(newIssue);
+                    }
+                }
+            }
+        }
     }
 
 }
