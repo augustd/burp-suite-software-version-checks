@@ -10,6 +10,7 @@ Apache-Coyote/([\d.]+)	1	Apache Coyote (Tomcat)	Low	Certain
 Apache Tomcat/([\d.]+)	1	Apache Tomcat	Low	Certain
 ARR/([\d.]+)	1	IIS Application Request Routing	Low	Certain
 ASP\.NET Version:([\d.]+)	1	ASP.Net	Low	Certain
+awselb/([\d.]+)	1	AWS Elastic Load Balancer	Low	Certain
 BOA/([\d.]+)	1	BOA Web Server	Low	Certain
 CKEDITOR.*version:"([\d.]+)"	1	CKEditor	Information	Certain
 Ember\.VERSION\s*=\s*["']([\w.]+)["']	1	Ember	Information	Certain	2
