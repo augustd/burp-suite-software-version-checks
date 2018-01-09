@@ -24,7 +24,7 @@ JBoss-([\d.]+(?:GA)?)	1	JBoss	Low	Certain
 JBoss-EAP/([\d.]+)	1	JBoss Enterprise Application Platform	Low	Certain		https://developers.redhat.com/products/eap/overview/
 JBoss_([\d_]+)	1	JBoss	Low	Certain
 JBPAPP_([\d_]+(?:GA)?)	1	JBoss	Low	Certain
-JBossWeb/([\d.]+(?:GA)?)	1	JBoss Webserver	Low	Certain
+JBoss(\s)?Web/([\d.]+(?:GA)?)	2	JBoss Webserver	Low	Certain	3
 Joomla! ([\d.]+)	1	Joomla!	Low	Certain
 JSF/([\d.]+)	1	Java Server Faces	Low	Certain
 JSP/([\d.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
