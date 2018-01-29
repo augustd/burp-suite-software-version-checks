@@ -14,6 +14,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -143,29 +144,8 @@ public class RegexTest {
     /**
      * Load match rules from a file
      */
-    private boolean loadTestResponse() throws URISyntaxException {
-        //load match rules from file
-        try {
-            //read match rules from the stream
-            Class clazz = getClass();
-            URI path = clazz.getClassLoader().getResource("burp/testResponse.txt").toURI();
-            File f = new File(path);
-            BufferedReader reader = new BufferedReader(new FileReader(f));
-
-            String str;
-            while ((str = reader.readLine()) != null) {
-                System.out.println("Test response: " + str);
-                testResponse += str;
-            }
-
-            return true;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-
-        return false;
+    private void loadTestResponse() {
+        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("burp/testResponse.txt");
+        this.testResponse = new Scanner(stream).useDelimiter("\\A").next();
     }
 }
