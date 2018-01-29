@@ -78,6 +78,8 @@ X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.13
 var Prototype = {
 
   Version: '1.7.3',
+<b>Roxen CMS</b> <font color='#ffbe00'>|</font>
+            version 6.1.200 </td>
 Ruby/3.2/2010-11-12
 Servlet 3.0.2.100
 <meta name="Generator" content="Sitefinity 8.0.5700.0 PE" />
