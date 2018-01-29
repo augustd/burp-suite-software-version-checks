@@ -73,10 +73,10 @@ public class RegexTest {
             while (matcher.find()) {
                 foundMatches++;
             }
-            
+
             System.out.println("Testing rule: " + rule.getPattern() + " matches: " + foundMatches);
-            
-	    if (foundMatches >= expectedMatches) { //(matcher.find()) {
+
+            if (foundMatches >= expectedMatches) { //(matcher.find()) {
                 matchCount++;
             } else {
                 System.out.println("Unable to find match for: " + rule.getPattern());
@@ -91,21 +91,21 @@ public class RegexTest {
      * Load match rules from a file
      */
     private boolean loadMatchRules(String url) {
-	//load match rules from file
-	try {
-	    //read match rules from the stream
-	    InputStream is = BurpExtender.class.getClassLoader().getResourceAsStream(url); //new URL(url).openStream();
-	    BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-	    
-	    String str;
-	    while ((str = reader.readLine()) != null) {
-		System.out.println("Match Rule: " + str);
-		if (str.trim().length() == 0) {
-		    continue;
-		}
+        //load match rules from file
+        try {
+            //read match rules from the stream
+            InputStream is = BurpExtender.class.getClassLoader().getResourceAsStream(url); //new URL(url).openStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 
-		String[] values = str.split("\\t");
-		
+            String str;
+            while ((str = reader.readLine()) != null) {
+                System.out.println("Match Rule: " + str);
+                if (str.trim().length() == 0) {
+                    continue;
+                }
+
+                String[] values = str.split("\\t");
+
                 try {
                     Pattern pattern = Pattern.compile(values[0]);
 
@@ -115,28 +115,28 @@ public class RegexTest {
                             values[2], 
                             ScanIssueSeverity.fromName(values[3]),
                             ScanIssueConfidence.fromName(values[4])
-                    );
-                    
+                            );
+
                     if (values.length > 5) {
-						String expectedMatches = values[5];
+                        String expectedMatches = values[5];
                         if (!Utils.isEmpty(expectedMatches)) rule.setExpectedMatches(new Integer(expectedMatches));
                     }
-                    
+
                     matchRules.add(rule);
-                    
+
                 } catch (PatternSyntaxException pse) {
                     pse.printStackTrace();
                 }
-	    }
-            
+            }
+
             return true;
 
-	} catch (IOException e) {
-	    e.printStackTrace();
-	} catch (NumberFormatException e) {
-	    e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
-        
+
         return false;
     }
 
@@ -144,28 +144,28 @@ public class RegexTest {
      * Load match rules from a file
      */
     private boolean loadTestResponse() throws URISyntaxException {
-	//load match rules from file
-	try {
-	    //read match rules from the stream
+        //load match rules from file
+        try {
+            //read match rules from the stream
             Class clazz = getClass();
             URI path = clazz.getClassLoader().getResource("burp/testResponse.txt").toURI();
             File f = new File(path);
-	    BufferedReader reader = new BufferedReader(new FileReader(f));
-	    
-	    String str;
-	    while ((str = reader.readLine()) != null) {
-		System.out.println("Test response: " + str);
+            BufferedReader reader = new BufferedReader(new FileReader(f));
+
+            String str;
+            while ((str = reader.readLine()) != null) {
+                System.out.println("Test response: " + str);
                 testResponse += str;
-	    }
-            
+            }
+
             return true;
 
-	} catch (IOException e) {
-	    e.printStackTrace();
-	} catch (NumberFormatException e) {
-	    e.printStackTrace();
-	}
-        
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 }
