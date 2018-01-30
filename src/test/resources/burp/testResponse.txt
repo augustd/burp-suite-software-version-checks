@@ -78,6 +78,8 @@ X-Powered-By: Phusion Passenger (mod_rails/mod_rack) 3.0.13
 var Prototype = {
 
   Version: '1.7.3',
+{"RestServices":"4.2.2",
+<RestServices>4.2.2</RestServices>
 Ruby/3.2/2010-11-12
 Servlet 3.0.2.100
 <meta name="Generator" content="Sitefinity 8.0.5700.0 PE" />
