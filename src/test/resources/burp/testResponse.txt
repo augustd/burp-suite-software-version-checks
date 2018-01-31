@@ -80,8 +80,9 @@ var Prototype = {
   Version: '1.7.3',
 {"RestServices":"4.2.2",
 <RestServices>4.2.2</RestServices>
-<b>Roxen CMS</b> <font color='#ffbe00'>|</font>
-            version 6.1.200 </td>
+<strong style="text-align:left;">Roxen CMS</strong>
+| version 5.1.185 </div>
+### Roxen ###
   <b style="text-align:left;">Roxen CMS</b>
 <font color="#ffbe00" style="text-align:left;">|</font>
 version 5.0.449 </td>
