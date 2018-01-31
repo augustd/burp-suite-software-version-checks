@@ -71,11 +71,13 @@ public class RegexTest {
             Matcher matcher = rule.getPattern().matcher(testResponse);
             int expectedMatches = (rule.getExpectedMatches() != null) ? rule.getExpectedMatches() : 1 ;
             int foundMatches = 0;
+			System.out.println("Testing rule: " + rule.getPattern());
             while (matcher.find()) {
+				System.out.println("     matches: " + matcher.group(0));
                 foundMatches++;
             }
 
-            System.out.println("Testing rule: " + rule.getPattern() + " matches: " + foundMatches);
+            System.out.println("     TOTAL: " + foundMatches);
 
             if (foundMatches >= expectedMatches) { //(matcher.find()) {
                 matchCount++;
@@ -85,7 +87,7 @@ public class RegexTest {
         }
         
         System.out.println(String.format("Found %d matches out of %d", matchCount, matchRules.size()));
-        assertEquals(matchCount, matchRules.size());
+        assertEquals(matchRules.size(), matchCount);
     }
     
     /**

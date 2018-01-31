@@ -80,6 +80,13 @@ var Prototype = {
   Version: '1.7.3',
 {"RestServices":"4.2.2",
 <RestServices>4.2.2</RestServices>
+<strong style="text-align:left;">Roxen CMS</strong>
+| version 5.1.185 </div>
+### Roxen ###
+  <b style="text-align:left;">Roxen CMS</b>
+<font color="#ffbe00" style="text-align:left;">|</font>
+version 5.0.449 </td>
+</tr>
 Ruby/3.2/2010-11-12
 Servlet 3.0.2.100
 <meta name="Generator" content="Sitefinity 8.0.5700.0 PE" />
