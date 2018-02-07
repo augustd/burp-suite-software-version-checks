@@ -63,8 +63,8 @@ public class BurpExtender extends PassiveScan implements IHttpListener {
         mTab.addComponent(consolidate);
 
         toolsScope = new ToolsScopeComponent(callbacks);
+        toolsScope.setToolDefault(IBurpExtenderCallbacks.TOOL_PROXY, true);
         toolsScope.setEnabledToolConfig(IBurpExtenderCallbacks.TOOL_PROXY, false);
-        toolsScope.setToolDefault(IBurpExtenderCallbacks.TOOL_PROXY, false);
         toolsScope.setToolDefault(IBurpExtenderCallbacks.TOOL_SCANNER, true);
         toolsScope.setToolDefault(IBurpExtenderCallbacks.TOOL_REPEATER, true);
         toolsScope.setToolDefault(IBurpExtenderCallbacks.TOOL_INTRUDER, true);
