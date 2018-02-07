@@ -48,6 +48,7 @@ Microsoft \.NET Framework Version:([\d.]+)	1	Microsoft .Net Framework	Low	Certai
 Microsoft \.NET Framework ([\d.]+)	1	Microsoft .Net Framework	Low	Certain
 MicrosoftSharePointTeamServices: ([\d.]+)	1	Microsoft SharePoint	Low	Certain
 mod_apreq\d-([\d./]+)	1	Apache HTTP Request Library	Low	Certain
+mod_fastcgi/([\d.]+)	1	mod_fastcgi Apache 2 module	Low	Certain
 mod_jk/([\d.]+)	1	mod_jk	Low	Certain
 mod_ssl/([\d.]+)	1	mod_ssl	Low	Certain
 mod_perl/([\d.]+)	1	mod_perl	Low	Certain
