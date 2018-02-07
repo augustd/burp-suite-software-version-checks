@@ -16,6 +16,7 @@ CKEDITOR=function(){var a=/(^|.*[\\\/])ckeditor\.js(?:\?.*|;.*)?$/i,d={timestamp
 Ember.VERSION = '1.0.pre';
 Ember.VERSION='1.0.pre';
 http://errors.angularjs.org/3.0.2.100/
+server:h2o/2.3.0-DEV
 Server: Hiawatha v1.2
 Handlebars.VERSION = "1.0.beta.6";
 Handlebars.VERSION="1.0.beta.6";
