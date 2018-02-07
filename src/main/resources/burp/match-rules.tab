@@ -85,6 +85,7 @@ TornadoServer/([\d.]+)	1	Tornado Server	Low	Certain
 Underscore\.js ([\d.]+)	1	Underscore.js	Information	Certain
 X-Powered-By: Undertow/([\d.]+)	1	Undertow	Low	Certain		http://undertow.io/
 var APPLICATION_FULL_VERSION = '([\d.]+)';	1	Microsoft CRM	Information	Certain
+Varnish/([\d.]+)	1	Varnish Cache	Low	Certain
 "version":"([a-z0-9\.\+]+)"	1	Generic	Information	Firm
 WEBrick/([\d.]+)	1	WEBrick	Low	Certain
 WebSockify Python/([\d.]+)	1	Python (Websockify)	Low	Certain
