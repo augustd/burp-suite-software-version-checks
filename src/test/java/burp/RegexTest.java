@@ -33,6 +33,7 @@ public class RegexTest {
 
     List<MatchRule> matchRules = new ArrayList<>();
     String testResponse;
+	String falsePositives;
     
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -44,8 +45,9 @@ public class RegexTest {
 
     @Before
     public void setUp() throws Exception {
-        loadTestResponse();
-        testLoadMatchRules();
+		testResponse = loadTestResponse("burp/testResponse.txt");
+        falsePositives = loadTestResponse("burp/falsePositives.txt");
+		testLoadMatchRules();
     }
 
     @After
@@ -90,7 +92,33 @@ public class RegexTest {
         assertEquals(matchRules.size(), matchCount);
     }
     
-    /**
+    @Test
+    public void testFalsePositives() {
+        System.out.println("***** testFalsePositives *****");
+        
+        int matchCount = 0;
+        
+        for (MatchRule rule : matchRules) {
+            Matcher matcher = rule.getPattern().matcher(falsePositives);
+            int foundMatches = 0;
+            while (matcher.find()) {
+                foundMatches++;
+            }
+            
+            System.out.println("Testing rule: " + rule.getPattern() + " matches: " + foundMatches);
+            
+	    if (foundMatches >= 1) { 
+                matchCount++;
+            } else {
+                System.out.println("Unable to find match for: " + rule.getPattern());
+            }
+        }
+        
+        System.out.println(String.format("Found %d matches out of %d", matchCount, matchRules.size()));
+        assertEquals(matchCount, 0);
+    }
+
+	/**
      * Load match rules from a file
      */
     private boolean loadMatchRules(String url) {
@@ -146,8 +174,32 @@ public class RegexTest {
     /**
      * Load match rules from a file
      */
-    private void loadTestResponse() {
-        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("burp/testResponse.txt");
-        this.testResponse = new Scanner(stream).useDelimiter("\\A").next();
+    private String loadTestResponse(String url) throws URISyntaxException {
+        StringBuilder output = new StringBuilder();
+        
+	//load match rules from file
+	try {
+	    //read match rules from the stream
+            Class clazz = getClass();
+            URI path = clazz.getClassLoader().getResource(url).toURI();
+            File f = new File(path);
+	    BufferedReader reader = new BufferedReader(new FileReader(f));
+	    
+	    String str;
+	    while ((str = reader.readLine()) != null) {
+		System.out.println("Test response: " + str);
+                output.append(str);
+	    }
+            
+            return output.toString();
+
+	} catch (IOException e) {
+	    e.printStackTrace();
+	} catch (NumberFormatException e) {
+	    e.printStackTrace();
+	}
+        
+        return null;
     }
+
 }
