@@ -90,7 +90,7 @@ var Prototype = {
 version 5.0.449 </td>
 </tr>
 Ruby/3.2/2010-11-12
-Servlet 3.0.2.100
+X-Powered-By: Servlet 2.5; JBoss-5.0/JBossWeb-2.1
 <meta name="Generator" content="Sitefinity 8.0.5700.0 PE" />
 <link href="/Telerik.Web.UI.WebResource.axd?d=db0VBNCGqiCBC3Vgke_pPFchlOHtWXWZy5yiIL7Xkw4BKD4t0egHi-CSQGlanoHiwNHz42KiKocVdBEET-qqRKf7mRxdch7uo9JWF6hDykNfKCdduw1nCwUiwqEWEwuKQ2&amp;t=63524329720342&amp;compress=0&amp;_TSM_CombinedScripts_=%3b%3bTelerik.Sitefinity.Resources%2c+Version%3d8.0.5700.0
   | hf.value += ';Telerik.Sitefinity.Resources, Version=8.0.5700.0, Culture=neutral, PublicKeyToken=b28c218413bd3:en:da474b-bbb5-4a2a-9b18-29b468be39f7:7a90d6a:d271177c:dff30785';
