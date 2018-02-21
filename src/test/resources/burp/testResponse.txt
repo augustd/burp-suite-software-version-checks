@@ -32,7 +32,7 @@ JBossWeb/2.0.0.GA_CP16_JBPAPP_10368 - Error report
 <h3>JBoss Web/7.4.10.Final-redhat-1</h3>
 JavaVersion=/home/build/autobuild/client/tools/Linux/jdk/jdk1.8.0_131_x64
 Joomla! 3.0.2.100
-JSF/3.0.2.100
+X-Powered-By:JSF/1.2
 JSP/3.0.2.100
 jQuery JavaScript Library v3.0.2.100
 jQuery UI 1.7.2
