@@ -9,7 +9,7 @@ Apache-Coyote/([\d.]+)	1	Apache Coyote (Tomcat)	Low	Certain
 >Apache Subversion</a>\s+version\s+([\d.]+(?:\s*\(r\d+\))?)	1	Apache Subversion	Low	Certain
 Apache Tomcat/([\d.]+)	1	Apache Tomcat	Low	Certain
 ARR/([\d.]+)	1	IIS Application Request Routing	Low	Certain
-ASP\.NET Version:([\d.]+)	1	ASP.Net	Low	Certain
+ASP\.NET Version:([\d.]+)	1	ASP.Net	Low	Firm
 awselb/([\d.]+)	1	AWS Elastic Load Balancer	Low	Certain
 BOA/([\d.]+)	1	BOA Web Server	Low	Certain
 CKEDITOR.*version:"([\d.]+)"	1	CKEditor	Information	Certain
@@ -92,7 +92,7 @@ WEBrick/([\d.]+)	1	WEBrick	Low	Certain
 WebSockify Python/([\d.]+)	1	Python (Websockify)	Low	Certain
 WebSphere Application Server/([\d.]+)	1	IBM WebSphere Application Server	Low	Certain
 Server: WildFly/([\d.]+)	1	WildFly	Low	Certain		http://wildfly.org/
-X-AspNet-Version: ([\d.]+)	1	ASP.Net	Low	Certain
+X-AspNet-Version: ([\d.]+)	1	ASP.Net	Low	Firm
 X-AspNetMvc-Version: ([\d.]+)	1	ASP.Net MVC Framework	Low	Certain
 X-Cocoon-Version: ([\d.]+)	1	Apache Cocoon	Low	Certain
 X-OWA-Version: ([\d.]+)	1	Outlook Web Access	Low	Certain
