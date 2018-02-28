@@ -9,6 +9,8 @@ Apache-Coyote/1.1
 <em>Powered by <a href="http://subversion.apache.org/">Apache Subversion</a> version 1.7.14 (r1542130).</em>
 Apache Tomcat/6.0.24 - Error report
 ARR/3.0.2.100
+Server:Artifactory/5.4.6
+<hr/><address style="font-size:small;">Artifactory/5.4.6 Server at my.internal.tld.net/(null) Port 80</address></body></html>
 ASP.NET Version:3.0.2.100
 Server: awselb/2.0
 BOA/3.0.2.100
