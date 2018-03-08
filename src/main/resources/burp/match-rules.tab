@@ -14,6 +14,7 @@ ASP\.NET Version:([\d.]+)	1	ASP.Net	Low	Firm
 awselb/([\d.]+)	1	AWS Elastic Load Balancer	Low	Certain
 BOA/([\d.]+)	1	BOA Web Server	Low	Certain
 CKEDITOR.*version:"([\d.]+)"	1	CKEditor	Information	Certain
+Communique/([\d.-]+)	1	Adobe Communique	Low	Certain
 Ember\.VERSION\s*=\s*["']([\w.]+)["']	1	Ember	Information	Certain	2
 http://errors\.angularjs\.org/([\d.]+)/	1	AngularJS	Information	Certain
 h2o/([\d.]+(-DEV)?)	1	H2O	Low	Certain
