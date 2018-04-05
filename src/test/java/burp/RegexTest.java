@@ -109,8 +109,7 @@ public class RegexTest {
             
 	    if (foundMatches >= 1) { 
                 matchCount++;
-            } else {
-                System.out.println("Unable to find match for: " + rule.getPattern());
+                System.out.println("Found false positive for: " + rule.getPattern());
             }
         }
         
