@@ -115,7 +115,7 @@ public class RegexTest {
         }
         
         System.out.println(String.format("Found %d matches out of %d", matchCount, matchRules.size()));
-        assertEquals(matchCount, 0);
+        assertEquals(0, matchCount);
     }
 
 	/**
