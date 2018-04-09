@@ -104,6 +104,8 @@ SOAPServer: SOAP::Lite/Perl/1.20
 Server: spray-can/1.3.3
 Via: 1.0 localhost (squid/3.1.20)
 Sun-Java-System-Web-Server/3.0.2.100
+<!-- 2018.1.117.40 -->   # Telerik
+<!-- 2011.1.315.35 -->   # Telerik
 Tomcat-3.0.2.100
 TornadoServer/3.0.2.100
 Underscore.js 3.0.2.100
