@@ -83,7 +83,7 @@ SOAP::Lite/Perl/([\d.]+)	1	SOAP::Lite	Low	Certain
 spray-can/([\d.]+)	1	Spray	Low	Certain
 squid/([\d.]+)	1	Squid Cache	Low	Certain
 Sun-Java-System-Web-Server/([\d.]+.*)	1	Oracle iPlanet	Low	Certain
-<!-- (201\d\.\d+\.\d+\.\d+) -->	1	Telerik	Low	Firm	2
+<!-- (20\d\d\.\d+\.\d+\.\d+) -->	1	Telerik	Low	Firm	2
 Tomcat-([\d.]+)	1	JBoss (Tomcat)	Low	Certain
 TornadoServer/([\d.]+)	1	Tornado Server	Low	Certain
 Underscore\.js ([\d.]+)	1	Underscore.js	Information	Certain
