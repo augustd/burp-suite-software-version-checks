@@ -27,7 +27,7 @@ JBoss-EAP/([\d.]+)	1	JBoss Enterprise Application Platform	Low	Certain		https://
 JBoss_([\d_]+)	1	JBoss	Low	Certain
 JBPAPP_([\d_]+(?:GA)?)	1	JBoss	Low	Certain
 JBoss\s?Web[/-]{1}([\d.]+(?:GA)?)	1	JBoss Webserver	Low	Certain	4
-\bjdk([x\d._]+)	1	Java JDK	Low	Certain
+\bjdk(\d[x\d._]+)	1	Java JDK	Low	Certain
 Joomla! ([\d.]+)	1	Joomla!	Low	Certain
 \bJSF/([\d.]+)	1	Java Server Faces	Low	Certain
 JSP/([\d.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain    
