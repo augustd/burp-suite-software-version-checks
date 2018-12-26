@@ -42,7 +42,7 @@ jquery[/-]([\d-.]+)	1	jQuery	Information	Certain	2
 jQuery v([\d.]+)	1	jQuery	Information	Certain
 Liferay Portal Enterprise Edition ([\d.]+)	1	Liferay Portal	Low	Certain
 lighttpd/([\d.]+)	1	lighttpd	Low	Certain
-Linux ([a-z0-9\.\-_]+)	1	Linux	Low	Certain
+Linux (\d.[a-z0-9\.\-_]+)	1	Linux	Low	Certain
 LiteSpeed/([\d.]+)	1	OpenCms	Low	Certain
 Microsoft-HTTPAPI/([\d.]+)	1	Microsoft HTTPAPI	Low	Certain
 Microsoft-IIS/([\d.]+)	1	Microsoft IIS	Low	Certain
