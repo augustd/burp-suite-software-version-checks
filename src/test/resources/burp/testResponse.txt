@@ -112,6 +112,7 @@ Underscore.js 3.0.2.100
 X-Powered-By: Undertow/1  
 var APPLICATION_FULL_VERSION = '1.2.3.4';
 via: 1.1 varnish (Varnish/5.2)
+Via: 1.1 vegur
 "version":"2.2.2+691b4b7"
 "version": "2.55.0.364"
 WEBrick/3.0.2.100
