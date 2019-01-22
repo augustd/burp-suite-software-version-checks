@@ -13,7 +13,7 @@ Server:Artifactory/5.4.6
 <hr/><address style="font-size:small;">Artifactory/5.4.6 Server at my.internal.tld.net/(null) Port 80</address></body></html>
 ASP.NET Version:3.0.2.100
 Server: awselb/2.0
-BOA/3.0.2.100
+BOA/345.0.2.100
 Server: Boa/0.94.14rc21
 CKEDITOR=function(){var a=/(^|.*[\\\/])ckeditor\.js(?:\?.*|;.*)?$/i,d={timestamp:"G14E",version:"4.5.7"
 Communique/4.2.0-20160330
