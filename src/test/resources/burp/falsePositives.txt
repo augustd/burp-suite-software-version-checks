@@ -3,3 +3,4 @@
 ZKbpREiw+wqpzdw+PHP/88M9JjoloS95P7/zVQ1YXWoiuw
 "clientId":"6zhazcojdkxq15q4x0azoy04f73"
 The IcedTea browser plugin installed on Linux is incompatible with
+Linux 5 is the next release
