@@ -13,7 +13,9 @@ Server:Artifactory/5.4.6
 <hr/><address style="font-size:small;">Artifactory/5.4.6 Server at my.internal.tld.net/(null) Port 80</address></body></html>
 ASP.NET Version:3.0.2.100
 Server: awselb/2.0
-BOA/3.0.2.100
+BOA/345.0.2.100
+Server: Boa/0.94.14rc21
+Server: Cherokee/1.2.104 (UNIX)
 CKEDITOR=function(){var a=/(^|.*[\\\/])ckeditor\.js(?:\?.*|;.*)?$/i,d={timestamp:"G14E",version:"4.5.7"
 Communique/4.2.0-20160330
 Ember.VERSION = '1.0.pre';
@@ -112,7 +114,9 @@ Underscore.js 3.0.2.100
 X-Powered-By: Undertow/1  
 var APPLICATION_FULL_VERSION = '1.2.3.4';
 via: 1.1 varnish (Varnish/5.2)
+Via: 1.1 vegur
 "version":"2.2.2+691b4b7"
+"version": "2.55.0.364"
 WEBrick/3.0.2.100
 Server: WebSockify Python/1.2.3
 WebSphere Application Server/3.0.2.100
