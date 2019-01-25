@@ -79,7 +79,7 @@ RestServices(>|":\s*")([\d.]+)	2	Mendix RestServices	Low	Certain	2
 Ruby/([\d.]+(?:/\d{4}-\d{2}-\d{2})?)	1	Ruby	Low	Certain
 Servlet[ /]([\d.]+)	1	Generic Java Servlet engine (possibly JBoss)	Low	Certain
 Sitefinity(\.Resources(,|%2c)( |\+|%20)Version(=|%3d))?\s*([\d.]+)	5	Sitefinity CMS	Low	Certain	3
-Sizzle (?:CSS Selector Engine[- ]*)?v([\d.]+(?:-\w+)?)	2	Sizzle CSS Selector Engine	Information	Certain	3
+Sizzle (?:CSS Selector Engine[- ]*)?v([\d.]+(?:-\w+)?)	1	Sizzle CSS Selector Engine	Information	Certain	3
 SOAP::Lite/Perl/([\d.]+)	1	SOAP::Lite	Low	Certain
 spray-can/([\d.]+)	1	Spray	Low	Certain
 squid/([\d.]+)	1	Squid Cache	Low	Certain
