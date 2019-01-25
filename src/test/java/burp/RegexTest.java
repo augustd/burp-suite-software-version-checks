@@ -73,9 +73,10 @@ public class RegexTest {
             Matcher matcher = rule.getPattern().matcher(testResponse);
             int expectedMatches = (rule.getExpectedMatches() != null) ? rule.getExpectedMatches() : 1 ;
             int foundMatches = 0;
-			System.out.println("Testing rule: " + rule.getPattern());
+			System.out.println("Testing rule: " + rule.getPattern() + " expected: " + expectedMatches);
             while (matcher.find()) {
 				System.out.println("     matches: " + matcher.group(0));
+				System.out.println("     version: " + matcher.group(rule.getMatchGroup()));
                 foundMatches++;
             }
 
