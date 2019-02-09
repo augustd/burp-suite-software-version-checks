@@ -29,6 +29,7 @@ Handlebars.VERSION="1.0.beta.6";
 IBM_HTTP_Server/3.0.2.100
 IWeb/3.0.2.100
 Server: Jetty(9.4.0.v20161208)
+Server: Jetty(9.4.z-SNAPSHOT)
 ContainerVersion=Jetty 9.4.4.qstv15
 JBoss-2.0.0.GA
 JBoss-EAP/7

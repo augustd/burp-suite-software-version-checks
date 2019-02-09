@@ -23,7 +23,7 @@ Hiawatha v([\d.]+)	1	Hiawatha	Low	Certain
 Handlebars\.VERSION\s*=\s*["']([\w.]+)["']	1	Handlebars.js	Information	Certain	2
 IBM_HTTP_Server/([\d.]+)	1	IBM HTTP Server	Low	Certain
 IWeb/([\d.]+)	1	360vision CCTV Web Server	Low	Certain
-Jetty\s?\(?([a-z\d.]+)\)?	1	Jetty	Low	Certain	2
+Jetty\s?\(?([a-z\d.]+(-SNAPSHOT)?)\)?	1	Jetty	Low	Certain	3
 JBoss-([\d.]+(?:GA)?)	1	JBoss	Low	Certain	2
 JBoss-EAP/([\d.]+)	1	JBoss Enterprise Application Platform	Low	Certain		https://developers.redhat.com/products/eap/overview/
 JBoss_([\d_]+)	1	JBoss	Low	Certain
