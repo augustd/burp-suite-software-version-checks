@@ -18,6 +18,7 @@ CKEDITOR.*version:"([\d.]+)"	1	CKEditor	Information	Certain
 Communique/([\d.-]+)	1	Adobe Communique	Low	Certain
 Ember\.VERSION\s*=\s*["']([\w.]+)["']	1	Ember	Information	Certain	2
 http://errors\.angularjs\.org/([\d.]+)/	1	AngularJS	Information	Certain
+gunicorn/([\d.]+)	1	Gunicorn	Low	Certain
 h2o/([\d.]+(-DEV)?)	1	H2O	Low	Certain
 Hiawatha v([\d.]+)	1	Hiawatha	Low	Certain
 Handlebars\.VERSION\s*=\s*["']([\w.]+)["']	1	Handlebars.js	Information	Certain	2
