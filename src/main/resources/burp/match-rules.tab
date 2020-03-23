@@ -16,6 +16,7 @@ awselb/([\d.]+)	1	AWS Elastic Load Balancer	Low	Certain
 Cherokee/(\d+\.[\d.b]+)(\s+\([a-zA-Z]+\))?	1	Cherokee Web Server	Low	Certain 2
 CKEDITOR.*version:"([\d.]+)"	1	CKEditor	Information	Certain
 Communique/([\d.-]+)	1	Adobe Communique	Low	Certain
+ecstatic-([\d.-]+)	1	Ecstatic (deprecated)	Medium	Certain
 Ember\.VERSION\s*=\s*["']([\w.]+)["']	1	Ember	Information	Certain	2
 http://errors\.angularjs\.org/([\d.]+)/	1	AngularJS	Information	Certain
 gunicorn/([\d.]+)	1	Gunicorn	Low	Certain
