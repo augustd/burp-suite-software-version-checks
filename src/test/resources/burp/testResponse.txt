@@ -30,6 +30,8 @@ Handlebars.VERSION = "1.0.beta.6";
 Handlebars.VERSION="1.0.beta.6";
 IBM_HTTP_Server/3.0.2.100
 IWeb/3.0.2.100
+/CreationDate(D:20200612085705+02'00')/Producer(iText 7.0.0 by 1T3XT)>>
+<</ModDate(D:20200612085705+02'00')/Creator(JasperReports Library version 6.12.2)/CreationDate(D:20200612085705+02'00')/Producer
 Server: Jetty(9.4.0.v20161208)
 Server: Jetty(9.4.z-SNAPSHOT)
 ContainerVersion=Jetty 9.4.4.qstv15
