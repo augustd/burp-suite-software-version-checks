@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/augustd/burp-suite-software-version-checks.svg?branch=master)](https://travis-ci.org/augustd/burp-suite-software-version-checks)
-[![Dependency Status](https://www.versioneye.com/user/projects/5a66886c0fb24f104260b95e/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5a66886c0fb24f104260b95e)
+[![Known Vulnerabilities](https://snyk.io/test/github/augustd/burp-suite-software-version-checks/badge.svg)](https://snyk.io/test/github/augustd/burp-suite-software-version-checks)
 
 # burp-suite-software-version-checks
 This Burp Suite extension passively detects applications revealing server software version numbers during scanning, spidering etc.
