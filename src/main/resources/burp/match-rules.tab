@@ -79,6 +79,7 @@ PHP/([\d]+[\.]+(?:[-\w\d\.]+)?)	1	PHP	Low	Certain	2
 Phusion Passenger(?: \([a-zA-Z_/]+\))? ([\d.]+)	1	Phusion Passenger	Low	Certain
 Prototype\s*=\s*\{\s*Version:\s*["']([\d.]+)["']	1	Prototype	Information	Certain
 Python/([\d.]+)	1	Python	Low	Certain	2
+ReDoc Version:\s+([\d.\-rc]+)	1	ReDoc	Low	Certain	1	https://github.com/Redocly/redoc
 RestServices(>|":\s*")([\d.]+)	2	Mendix RestServices	Low	Certain	2
 >Roxen CMS<[\S\s]*?\|[\s\S]*?version ([\d.]+)	1	Roxen CMS	Low	Certain	2
 Ruby/([\d.]+(?:/\d{4}-\d{2}-\d{2})?)	1	Ruby	Low	Certain
