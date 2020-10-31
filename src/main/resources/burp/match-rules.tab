@@ -78,7 +78,7 @@ Perl/v([\d.]+)	1	Perl	Low	Certain
 PHP/([\d]+[\.]+(?:[-\w\d\.]+)?)	1	PHP	Low	Certain	2
 Phusion Passenger(?: \([a-zA-Z_/]+\))? ([\d.]+)	1	Phusion Passenger	Low	Certain
 Prototype\s*=\s*\{\s*Version:\s*["']([\d.]+)["']	1	Prototype	Information	Certain
-Python/([\d.]+)	1	Python	Low	Certain	1
+Python/([\d.]+)	1	Python	Low	Certain	2
 ReDoc Version:\s+([\d.\-rc]+)	1	ReDoc	Low	Certain	1	https://github.com/Redocly/redoc
 RestServices(>|":\s*")([\d.]+)	2	Mendix RestServices	Low	Certain	2
 >Roxen CMS<[\S\s]*?\|[\s\S]*?version ([\d.]+)	1	Roxen CMS	Low	Certain	2
@@ -103,7 +103,8 @@ Via: ([\d.]+) vegur	1	Vegur Proxy	Low	Certain		https://github.com/heroku/vegur
 WEBrick/([\d.]+)	1	WEBrick	Low	Certain
 WebSockify Python/([\d.]+)	1	Python (Websockify)	Low	Certain
 WebSphere Application Server/([\d.]+)	1	IBM WebSphere Application Server	Low	Certain
-Server: WildFly/([\d.]+)	1	WildFly	Low	Certain		http://wildfly.org/
+Werkzeug/([\d.]+)	1	Werkzeug	Low	Certain		https://werkzeug.palletsprojects.com/
+WildFly/([\d.]+)	1	WildFly	Low	Certain		http://wildfly.org/
 X-AspNet-Version: ([\d.]+)	1	ASP.Net	Low	Firm
 X-AspNetMvc-Version: ([\d.]+)	1	ASP.Net MVC Framework	Low	Certain
 X-Cocoon-Version: ([\d.]+)	1	Apache Cocoon	Low	Certain
