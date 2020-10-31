@@ -8,6 +8,7 @@ import com.codemagi.burp.ScanIssueSeverity;
 import com.codemagi.burp.ScannerMatch;
 import com.monikamorrow.burp.BurpSuiteTab;
 import com.monikamorrow.burp.ToolsScopeComponent;
+import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -204,7 +205,8 @@ public class BurpExtender extends PassiveScan implements IHttpListener {
 
     @Override
     public void processHttpMessage(int toolFlag, boolean messageIsRequest, IHttpRequestResponse messageInfo) {
-        if (!messageIsRequest && toolsScope.isToolSelected(toolFlag)) {
+        URL requestUrl = getRequestUrl(messageInfo); 
+        if (!messageIsRequest && toolsScope.isToolSelected(toolFlag) && callbacks.isInScope(requestUrl)) {
             //first get the scan issues
             List<IScanIssue> issues = runPassiveScanChecks(messageInfo);
 
@@ -235,6 +237,15 @@ public class BurpExtender extends PassiveScan implements IHttpListener {
                 }
             }
         }
+    }
+
+    private URL getRequestUrl(IHttpRequestResponse messageInfo) {
+        URL output = null;
+        IRequestInfo request = helpers.analyzeRequest(messageInfo);
+        if (request != null) {
+            output = request.getUrl();
+        } 
+        return output;
     }
 
 }
