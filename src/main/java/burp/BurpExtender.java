@@ -1,5 +1,6 @@
 package burp;
 
+import com.codemagi.burp.Offsets;
 import com.codemagi.burp.PassiveScan;
 import com.codemagi.burp.ScanIssue;
 import com.codemagi.burp.RuleTableComponent;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -103,13 +105,20 @@ public class BurpExtender extends PassiveScan implements IHttpListener {
 
                 Collections.sort(matches); //matches must be in order
                 //get the offsets of scanner matches
-                List<int[]> startStop = new ArrayList<>(1);
+                LinkedList<Offsets> offsets = new LinkedList<>();
                 for (ScannerMatch match : matches) {
                     callbacks.printOutput("Processing match: " + match);
                     callbacks.printOutput("    start: " + match.getStart() + " end: " + match.getEnd() + " full match: " + match.getFullMatch() + " group: " + match.getMatchGroup());
 
                     //add a marker for code highlighting
-                    startStop.add(new int[]{match.getStart(), match.getEnd()});
+                    Offsets matchOffsets = match.getOffsets();
+                    if (!matchOffsets.overlaps(offsets.peekLast())) {
+                        offsets.add(match.getOffsets());
+                    } else {
+                        //if the new offsets overlap, combine them into one and add them to the list
+                        Offsets combinedOffsets = matchOffsets.combine(offsets.pop());
+                        offsets.add(combinedOffsets);
+                    }
 
                     //have we seen this match before? 
                     if (!domainMatches.contains(match.getFullMatch())) {
@@ -119,6 +128,10 @@ public class BurpExtender extends PassiveScan implements IHttpListener {
                     domainMatches.add(match.getFullMatch());
                 }
                 if (foundUnique) {
+                    List<int[]> startStop = new ArrayList<>(1);
+                    for (Offsets os : offsets) {
+                        startStop.add(os.toArray());
+                    }
                     issues.add(getScanIssue(baseRequestResponse, matches, startStop));
                 }
                 callbacks.printOutput("issues: " + issues.size());
